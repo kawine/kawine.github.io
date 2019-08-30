@@ -46,6 +46,10 @@
         .sidebar {
           position: fixed;
         }
+
+        #portrait {
+          width: 100%;
+        }
       }
 
       @media (max-width: 992px) {
@@ -53,6 +57,10 @@
           padding-bottom: 5%;	
           margin: auto;
           text-align: center;
+        }
+
+        #portrait {
+          width: 50%;
         }
       }
     </style>
@@ -62,7 +70,7 @@
     <div class="container">
       <div class="col-md-4">
         <div class="row sidebar">
-            <img src="assets/profile_2.jpg" width="100%">
+            <img id="portrait" src="assets/profile_2.jpg">
             <div class="year" style="font-size:19pt; font-weight: 300">
               <b class="name">KAWIN</b> ETHAYARAJH 
             </div>
@@ -84,17 +92,22 @@
             <p>My research interests are in representation learning for NLP (e.g., word embeddings, additive compositionality) and ML fairness. While at Google, I also worked on graph representation learning and information extraction.</p>
           </div>
 
+        <h4 class="top-buffer">Updates</h4>
+        <ul style='margin-bottom: 50px;' id="updates">
+          <li>(09/28/2019) Two papers accepted to EMNLP 2019! Preprints forthcoming.</li>
+        </ul>
+
         <h4 class="top-buffer">Publications</h4>
         <ul style='margin-bottom: 50px; list-style: none' id="pubs">
           <h5 class="year">2019</h5>
           <li>
-            <b>How Contextual are Contextualized Word Representations? Comparing the Geometry of BERT, ELMo, and GPT-2 Embeddings</b><br/>
+            <b>How Contextual are Contextualized Word Representations? Comparing the Geometry of BERT, ELMo, and GPT-2 Embeddings.</b><br/>
             <u>Kawin Ethayarajh</u>.<br/>
             EMNLP 2019, long.<br/>
           </li>
 
           <li>
-            <b>Rotate <i>King</i> to get <i>Queen</i>: Word Relationships as Orthogonal Transformations in Embedding Space</b><br/>
+            <b>Rotate <i>King</i> to get <i>Queen</i>: Word Relationships as Orthogonal Transformations in Embedding Space.</b><br/>
             <u>Kawin Ethayarajh</u>.<br/>
             EMNLP 2019, short.<br/>
           </li>

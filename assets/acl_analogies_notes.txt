@@ -1,0 +1,26 @@
+Recall that SGNS and GloVe create two representations for each word – one for when it is the target 
+word and one for when it is a context word (i.e., in the context window of some other word). Either
+representation set can be used, although one generally keeps the word vectors W and discards the
+context vectors C. Any interaction between word and context vectors can be modelled as an inner 
+product <⋅,⋅> : W x C -> F, where F is a field of scalars. Note that the dot product is a type of
+inner product, but _not_ the only kind.
+
+Because the same word-context pairs are used to update both W and C during training, it should not 
+matter whether the interaction between words x and y are represented as <x, y_c> or <x_c, y> (where 
+_c denotes the context vector). In other words, the inner product should be invariant to which word
+is treated as the context vector. This is why past work (e.g., Arora et al. (2016)) assumes that the 
+word and context vectors are identical. Since the factorized matrix M is symmetric, if we use the 
+full-dimensional vectors, this property is satisfied: (x = x_c) && (y = y_c) ==> <x, y_c> = <x_c, y>.
+
+Returning to section 3.3 in the paper, if word vectors lied in different eigenspaces (i.e., if A in 
+C = AW had non-distinct eigenvalues), then an inner product would not _necessarily_ be invariant to
+which word was treated as the context vector. Although the dot product would be invariant even if
+the eigenvalues were distinct, the same could not be said of an inner product _in the general case_.
+This is why the eigenvalues must be non-distinct (under the assumptions provided in the paper). We
+overloaded the <⋅,⋅> notation in the last paragraph of section 3.3, but it refers to the inner
+product in the general case, not just the dot product.
+
+Special thanks to Steven Cao and Zhuang Boyuan for requesting clarification on this point; their 
+requests prompted this addendum.
+
+

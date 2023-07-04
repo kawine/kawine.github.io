@@ -86,20 +86,23 @@
   
           <div class="col-12">
 		<p>
-			I’m a fourth-year PhD student in the Stanford AI Lab, where I work on economistic artificial intelligence. I am supported by a Facebook Fellowship and an NSERC PGS-D.
+			I’m a fourth-year PhD student in the Stanford AI Lab, where I work on human-centered AI. I am supported by a Facebook Fellowship and an NSERC PGS-D.
 		</p>
 		<p>
-			As AI becomes more performant, there has been growing interest in using AI as both a complement and substitute for human labor.
-			However, human-AI collaboration and substitution do not occur in a vacuum; they are driven by broader economic forces that are often left unexamined.
-			My work studies the interplay of AI and these economic forces, and seeks to make AI systems that are more compatible with all economic actors, including individuals, firms, and the state.
+			AI is developed, evaluated, and used by humans that we assume are rational despite overwhelming evidence to the contrary.
+			This false assumption can lead to a host of adverse outcomes.
+			But people are not irrational in unpredictable ways; in fact, there are entire fields like behavioral economics that study how humans are systematically irrational.
+			My work leverages this idea to create datasets, models, and evaluation protocols that are compatible with real humans, not just idealized ones.
 		</p>
           </div>
 
         <h4 class="top-buffer">Recent Work (<a href="https://scholar.google.com/citations?user=7SUV6rQAAAAJ&hl=en">full list</a>)</h4>
         
-
-	  <p>Machines are often perceived as being more "rational" than human workers, but this is incorrect. AI is often irrational is unexpected ways, and we trace this back to the training data.
-	  Our framework also enables the creation of large-scale datasets for next-to-nothing (e.g., SHP, used by Microsoft Deepspeed Chat and StableVicuna, the first open-source chatbot powered by RLHF).</p>
+	  <p>
+	  We often think dataset developers create datasets that are as difficult as the tasks they purport to reflect. 
+	  In practice however, the datasets are much simpler; we formalize the notion of "dataset difficulty" to describe this.
+	  Our framework also enables the creation of large-scale datasets for free (e.g., SHP, used by Microsoft Deepspeed Chat and StableVicuna, the first open-source RLHF chatbot).
+	  </p>
 
 	  <ul style='margin-bottom: 25px; list-style: none' id="pubs">
 		  <li>  
@@ -113,7 +116,8 @@
 		  </li>
 	  </ul>
 
-	  <p>How do we help individuals and firms choose the model that best fits their resource constraints? We introduce an evaluation-as-a-service platform for hosting benchmarks that goes beyond performance-based rankings.
+	  <p>In the real-world, people often do not want the most-accurate model -- just one that is good enough.
+ 	  We argue that this behavior is boundedly rational and introduce an evaluation-as-a-service platform for hosting benchmarks that goes beyond performance-based rankings.
 	  Dynaboard has been used to host 20+ benchmarks across CV, NLP, and ML from Stanford, Harvard, Meta, Google, and ETH Zurich.</p>
 
 	  <ul style='margin-bottom: 25px; list-style: none' id="pubs">
@@ -138,7 +142,9 @@
         	</li>
 	  </ul>
 
-	  <p>Human evaluation of generative AI requires humans to be rational in ways that they are not, leading to flawed conclusions. We propose SPA, which works better in both theory and practice.</p>
+	  <p>Human evaluation of generative AI assumes that they are rational in the von Neumann-Morgenstern sense.
+ 	  We show that they are not, which leads to very counter-intuitive conclusions, like LLMs being no better than models that are 10x smaller.
+	  We propose a new evaluation protocol that makes fewer assumptions about annotator rationality.</p>
 
 	  <ul style='margin-bottom: 25px; list-style: none' id="pubs">
 	 	<li>	

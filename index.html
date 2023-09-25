@@ -86,13 +86,15 @@
   
           <div class="col-12">
 		<p>
-			I’m a fourth-year PhD student in the Stanford AI Lab, where I work on human-centered AI. I am supported by a Facebook Fellowship and an NSERC PGS-D.
+			I’m a fifth-year PhD student in the Stanford CS department, where I draw on economics to make AI compatible with human irrationality. I was supported by a Facebook Fellowship and an NSERC PGS-D.
 		</p>
 		<p>
-			AI is developed, evaluated, and used by humans that we assume are rational despite overwhelming evidence to the contrary.
-			This false assumption can lead to a host of adverse outcomes.
-			But people are not irrational in unpredictable ways; in fact, there are entire fields like behavioral economics that study how humans are systematically irrational.
-			My work leverages this idea to create datasets, models, and evaluation protocols that are compatible with real humans, not just idealized ones.
+			Classical economic theory framed humans as <i>homo economicus</i>, perfectly rational agents that are narrowly self-interested and always act optimally.
+			In the real world however, humans are complex and often "uneconomic", and the last few decades have seen economic models evolve to better capture this reality.
+
+			My work argues that the methods currently used to develop, evaluate, and deploy AI make many of the same assumptions of humans that classical economics did.
+			These false assumptions have led to a host of adverse outcomes: datasets much simpler than the task they purport to reflect, a culture of hill-climbing on one performance metric, and models that fail to evolve with users, among other pains.
+			I borrow from more recent advances in economics to create datasets, models, and evaluation protocols that are compatible with real humans, not just idealized ones.
 		</p>
           </div>
 
@@ -101,7 +103,8 @@
 	  <p>
 	  The gap between human and state-of-the-art model performance is often used as a proxy for dataset difficulty.
 	  However, human annotators are not perfectly rational -- they don't exploit all the spurious patterns in the data that they could, thus giving the impression that a dataset is harder than it actually is.
-	  We formalize this idea with information theory and use our framework to create large-scale datasets for free (e.g., SHP, used by Microsoft Deepspeed Chat and StableVicuna, the first open-source RLHF chatbot).
+	  We formalize this idea with information theory and use our framework to create the largest public dataset of human preferences over text (SHP).
+	  SHP is used by Amazon AWS (for reranking generations), Microsoft Deepspeed Chat (to train LLMs), StableVicuna (the first open-source RLHF chatbot), and Llama-2 (one of the most widely-used LLMs).
 	  </p>
 
 	  <ul style='margin-bottom: 25px; list-style: none' id="pubs">

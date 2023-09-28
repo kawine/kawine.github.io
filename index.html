@@ -102,8 +102,8 @@
         <h4 class="top-buffer">Recent Work (<a href="https://scholar.google.com/citations?user=7SUV6rQAAAAJ&hl=en">full list</a>)</h4>
         
 	  <p>
-	  AI practitioners often train their models with sub-optimal data that is much simpler than the task they actually want to solve.
-	  Although seemingly irrational, this happens because determining the value of data is non-trivial, forcing people to cut corners.
+	  People often train their models with sub-optimal data that is much simpler than the task they actually want to solve.
+	  Why? Although seemingly irrational, this happens because determining the value of data is non-trivial.
  	  To help create more useful datasets, I proposed an information-theoretic framework for understanding dataset difficulty and then used this framework to create the largest public dataset of human preferences over text (SHP).
 	  SHP is used by Amazon AWS (for reranking generations), Microsoft Deepspeed Chat (to train LLMs), StableVicuna (the first open-source RLHF chatbot), and Llama-2 (one of the most widely-used LLMs).
 	  </p>
@@ -122,9 +122,12 @@
 	  </ul>
 
 	  <p>
-	  In the real-world, people often do not want the most-accurate model -- just one that is good enough.
- 	  We argue that this behavior is boundedly rational and introduce an evaluation-as-a-service platform for hosting benchmarks that goes beyond performance-based rankings.
-	  Dynaboard has been used to host 20+ benchmarks across CV, NLP, and ML from Stanford, Harvard, Meta, Google, and ETH Zurich.</p>
+	  User utility is much more complex than just a single performance metric, yet AI evaluation often fails to go beyond accuracy on a test set.
+          I introduced the notion of utility-driven evaluation, which measures not only the upside from using a model but also its costs (latency, memory, etc.)
+          Working with researchers at Meta, we developed Dynaboard, a holistic evaluation-as-a-service platform for hosting benchmarks.
+          Dynaboard has been used to host many challenges, including DADC (Dynamic Adversarial Data Collection), DataPerf, BabyLM, and Flores.
+	  The concept of utility-driven evaluation has since gained wide acceptance and underlies many benchmarks, like Stanford's <a href="https://crfm.stanford.edu/helm/latest/">HELM</a>.
+	  </p>
 
 	  <ul style='margin-bottom: 25px; list-style: none' id="pubs">
 	  	<li>

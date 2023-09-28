@@ -86,12 +86,13 @@
   
           <div class="col-12">
 		<p>
-			I’m a fifth-year PhD student in the Stanford CS department, where I draw on economics to make AI compatible with human irrationality. I was supported by a Facebook Fellowship and an NSERC PGS-D.
+			I’m a fifth-year PhD student in the Stanford CS department, where I draw on economics to make AI compatible with real humans. I was supported by a Facebook Fellowship and an NSERC PGS-D.
 		</p>
 		<p>
 			Classical economic theory framed humans as <i>homo economicus</i>, perfectly rational agents that are narrowly self-interested and always act optimally.
 			In the real world however, humans are complex and often "uneconomic", and the last few decades have seen economic models evolve to better capture this reality.
-
+		</p>
+		<p>
 			My work argues that the methods currently used to develop, evaluate, and deploy AI make many of the same assumptions of humans that classical economics did.
 			These false assumptions have led to a host of adverse outcomes: datasets much simpler than the task they purport to reflect, a culture of hill-climbing on one performance metric, and models that fail to evolve with users, among other pains.
 			I borrow from more recent advances in economics to create datasets, models, and evaluation protocols that are compatible with real humans, not just idealized ones.
@@ -101,9 +102,9 @@
         <h4 class="top-buffer">Recent Work (<a href="https://scholar.google.com/citations?user=7SUV6rQAAAAJ&hl=en">full list</a>)</h4>
         
 	  <p>
-	  The gap between human and state-of-the-art model performance is often used as a proxy for dataset difficulty.
-	  However, human annotators are not perfectly rational -- they don't exploit all the spurious patterns in the data that they could, thus giving the impression that a dataset is harder than it actually is.
-	  We formalize this idea with information theory and use our framework to create the largest public dataset of human preferences over text (SHP).
+	  AI practitioners often train their models with sub-optimal data that is much simpler than the task they actually want to solve.
+	  Although seemingly irrational, this happens because determining the value of data is non-trivial, forcing people to cut corners.
+ 	  To help create more useful datasets, I proposed an information-theoretic framework for understanding dataset difficulty and then used this framework to create the largest public dataset of human preferences over text (SHP).
 	  SHP is used by Amazon AWS (for reranking generations), Microsoft Deepspeed Chat (to train LLMs), StableVicuna (the first open-source RLHF chatbot), and Llama-2 (one of the most widely-used LLMs).
 	  </p>
 
@@ -115,11 +116,13 @@
 		    	<a href="https://proceedings.mlr.press/v162/ethayarajh22a/ethayarajh22a.pdf"><span class="label label-default">paper</span></a>
 		    	<a href="https://twitter.com/ethayarajh/status/1449203922057400329"><span class="label label-info">tweet</span></a>
 			<a href="https://github.com/kawine/dataset_difficulty"><span class="label label-success">code</span></a>
+			<a href="https://huggingface.co/datasets/stanfordnlp/SHP"><span class="label label-danger">dataset</span></a>
 	        	<a href="https://proceedings.mlr.press/v162/ethayarajh22a.html"><span class="label label-primary">bib</span></a>
 		  </li>
 	  </ul>
 
-	  <p>In the real-world, people often do not want the most-accurate model -- just one that is good enough.
+	  <p>
+	  In the real-world, people often do not want the most-accurate model -- just one that is good enough.
  	  We argue that this behavior is boundedly rational and introduce an evaluation-as-a-service platform for hosting benchmarks that goes beyond performance-based rankings.
 	  Dynaboard has been used to host 20+ benchmarks across CV, NLP, and ML from Stanford, Harvard, Meta, Google, and ETH Zurich.</p>
 

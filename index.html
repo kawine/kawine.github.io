@@ -86,7 +86,7 @@
   
           <div class="col-12">
 		<p>
-			I’m a fifth-year PhD student in the Stanford CS department, where I draw on economics to make AI compatible with real humans. I was supported by a Facebook Fellowship and an NSERC PGS-D.
+			I’m a fifth-year PhD student in the Stanford CS department, where I draw on economics to make AI compatible with humans. I was supported by a Facebook Fellowship and an NSERC PGS-D.
 		</p>
 		<p>
 			Classical economic theory framed humans as <i>homo economicus</i>, perfectly rational agents that are narrowly self-interested and always act optimally.
@@ -103,7 +103,7 @@
         
 	  <p>
 	  People often train their models with sub-optimal data that is much simpler than the task they actually want to solve.
-	  Why? Although seemingly irrational, this happens because determining the value of data is non-trivial.
+	  Why? Although we expect people to act in their self-interest, this happens because determining the value of data is non-trivial.
  	  To help create more useful datasets, I proposed an information-theoretic framework for understanding dataset difficulty and then used this framework to create the largest public dataset of human preferences over text (SHP).
 	  SHP is used by Amazon AWS (for reranking generations), Microsoft Deepspeed Chat (to train LLMs), StableVicuna (the first open-source RLHF chatbot), and Llama-2 (one of the most widely-used LLMs).
 	  </p>
@@ -151,9 +151,12 @@
         	</li>
 	  </ul>
 
-	  <p>Human evaluation of generative AI assumes that they are rational in the von Neumann-Morgenstern sense.
- 	  We show that they are not, which leads to very counter-intuitive conclusions from human evaluation, like LLMs being no better than models that are 10x smaller.
-	  We propose a new evaluation protocol that makes fewer assumptions about annotator rationality.</p>
+	  <p>
+          In generative AI, we often have to ask people to rate generations, which are then aggregated across multiple individuals and used to align models with human preferences.
+          I showed that this presumes humans to be von Neumann-Morgenstern rational, which they rarely are in practice; in reality, human preferences are non-static, incomplete, and often intransitive.
+          Not taking this into account can lead to counter-intuitive conclusions, like ChatGPT being no better than models that are 10x smaller.
+	  My current work uses more recent developments in modeling preferences, such as prospect theory, to deal with this complexity.
+	  </p>
 
 	  <ul style='margin-bottom: 25px; list-style: none' id="pubs">
 	 	<li>	

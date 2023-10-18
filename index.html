@@ -92,10 +92,10 @@
 
         <h4 class="top-buffer">Recent Work (<a href="https://scholar.google.com/citations?user=7SUV6rQAAAAJ&hl=en">full list</a>)</h4>
 	  <p>
-		Because of the principal-agent problem, datasets are often much simpler than we want them to be.
+		<b>Data: </b>Because of the principal-agent problem, datasets are often much simpler than we want them to be.
 		I design frameworks that help principals (e.g., AI researchers) build higher-quality datasets.
 		For example, I proposed an information-theoretic framework for understanding dataset difficulty and then used this framework to create one of the largest public datasets of human preferences over text (SHP).
-	  	SHP is used by Amazon AWS (for reranking generations), Microsoft Deepspeed Chat (to train LLMs), StableVicuna (the first open-source RLHF chatbot), and Llama-2 (one of the most widely-used LLMs).
+	  	SHP is used by Amazon AWS (for reranking generations), Microsoft Deepspeed Chat (to train LLMs) and Llama-2 (one of the most widely-used LLMs).
 	  </p>
 
 	  <ul style='margin-bottom: 25px; list-style: none' id="pubs">
@@ -112,10 +112,27 @@
 	  </ul>
 
 	  <p>
-          I introduced the notion of utility-driven evaluation, which measures not only the upside from using a model but also its costs (latency, memory, etc.)
-          Working with researchers at Meta, we developed Dynaboard, a holistic evaluation-as-a-service platform for hosting benchmarks.
-          Dynaboard has been used to host many challenges, including DADC (Dynamic Adversarial Data Collection), DataPerf, BabyLM, and Flores.
-	  The concept of utility-driven evaluation has since gained wide acceptance and underlies many benchmarks, like Stanford's <a href="https://crfm.stanford.edu/helm/latest/">HELM</a>.
+	  	<b>Models: </b>Modeling human objectives is hard, but is necessary because people are rarely the rational and informed actors that they are assumed to be.
+	  	For example, I proved that comparing models by asking humans to rate their generations presumes them to be von Neumann-Morgenstern rational, which they rarely are in practice.
+          	Not taking this into account can lead to counter-intuitive conclusions, like ChatGPT being no better than models that are 10x smaller.
+	  	My current work uses more recent developments in modeling preferences, such as prospect theory, to deal with this complexity.
+	  </p>
+
+	  <ul style='margin-bottom: 25px; list-style: none' id="pubs">
+	 	<li>	
+			<i>The Authenticity Gap in Human Evaluation.</i><br/>
+			<u>Kawin Ethayarajh</u> and Dan Jurafsky.<br/>
+		      	EMNLP 2022.<br/>
+		    	<a href="assets/emnlp_2022_paper.pdf"><span class="label label-default">paper</span></a>
+		    	<a href="https://twitter.com/ethayarajh/status/1593028231707643904"><span class="label label-info">tweet</span></a>
+		</li>
+	  </ul>
+
+	  	  <p>
+          	<b>Evaluation: </b>I introduced the notion of utility-driven evaluation, which measures not only the upside from using a model but also its costs (latency, memory, etc.)
+          	Working with researchers at Meta, we developed Dynaboard, a holistic evaluation-as-a-service platform for hosting benchmarks.
+          	Dynaboard has been used to host many challenges, including DADC (Dynamic Adversarial Data Collection), DataPerf, BabyLM, and Flores.
+	  	The concept of utility-driven evaluation has since gained wide acceptance and underlies many benchmarks, like Stanford's <a href="https://crfm.stanford.edu/helm/latest/">HELM</a>.
 	  </p>
 
 	  <ul style='margin-bottom: 25px; list-style: none' id="pubs">
@@ -139,24 +156,6 @@
 	        	<a href="https://www.aclweb.org/anthology/2020.emnlp-main.393.bib"><span class="label label-primary">bib</span></a>
         	</li>
 	  </ul>
-
-	  <p>
-	  Modeling human objectives is hard, but is necessary because people are rarely the rational and informed actors that they are assumed to be.
-	  For example, I proved that comparing models by asking humans to rate their generations presumes them to be von Neumann-Morgenstern rational, which they rarely are in practice.
-          Not taking this into account can lead to counter-intuitive conclusions, like ChatGPT being no better than models that are 10x smaller.
-	  My current work uses more recent developments in modeling preferences, such as prospect theory, to deal with this complexity.
-	  </p>
-
-	  <ul style='margin-bottom: 25px; list-style: none' id="pubs">
-	 	<li>	
-			<i>The Authenticity Gap in Human Evaluation.</i><br/>
-			<u>Kawin Ethayarajh</u> and Dan Jurafsky.<br/>
-		      	EMNLP 2022.<br/>
-		    	<a href="assets/emnlp_2022_paper.pdf"><span class="label label-default">paper</span></a>
-		    	<a href="https://twitter.com/ethayarajh/status/1593028231707643904"><span class="label label-info">tweet</span></a>
-		</li>
-	  </ul>
-		
 	<!-- 	
 
  	<h4 class="top-buffer">Older Work</h4>

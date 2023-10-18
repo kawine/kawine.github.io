@@ -86,26 +86,16 @@
   
           <div class="col-12">
 		<p>
-			I’m a fifth-year PhD student in the Stanford CS department, where I draw on economics to make AI compatible with humans. I was supported by a Facebook Fellowship and an NSERC PGS-D.
-		</p>
-		<p>
-			Classical economic theory framed humans as <i>homo economicus</i>, perfectly rational agents that are narrowly self-interested and always act optimally.
-			In the real world however, humans are complex and often "uneconomic", and the last few decades have seen economic models evolve to better capture this reality.
-		</p>
-		<p>
-			My work argues that the methods currently used to develop, evaluate, and deploy AI make many of the same assumptions of humans that classical economics did.
-			These false assumptions have led to a host of adverse outcomes: datasets much simpler than the task they purport to reflect, a culture of hill-climbing on one performance metric, and models that fail to evolve with users, among other pains.
-			I borrow from more recent advances in economics to create datasets, models, and evaluation protocols that are compatible with real humans, not just idealized ones.
+			I’m a fifth-year PhD student in the Stanford CS department where I work on bringing <b>human fault-tolerance to machine learning</b>, by drawing from machine learning to make pipelines robust to the irrational, inconsistent, and uninformed human decisions made at every step. I was supported by a Facebook Fellowship and an NSERC PGS-D.
 		</p>
           </div>
 
         <h4 class="top-buffer">Recent Work (<a href="https://scholar.google.com/citations?user=7SUV6rQAAAAJ&hl=en">full list</a>)</h4>
-        
 	  <p>
-	  People often train their models with sub-optimal data that is much simpler than the task they actually want to solve.
-	  Why? Although we expect people to act in their self-interest, this happens because determining the value of data is non-trivial.
- 	  To help create more useful datasets, I proposed an information-theoretic framework for understanding dataset difficulty and then used this framework to create the largest public dataset of human preferences over text (SHP).
-	  SHP is used by Amazon AWS (for reranking generations), Microsoft Deepspeed Chat (to train LLMs), StableVicuna (the first open-source RLHF chatbot), and Llama-2 (one of the most widely-used LLMs).
+		Because of the principal-agent problem, datasets are often much simpler than we want them to be.
+		I design frameworks that help principals (e.g., AI researchers) build higher-quality datasets.
+		For example, I proposed an information-theoretic framework for understanding dataset difficulty and then used this framework to create one of the largest public datasets of human preferences over text (SHP).
+	  	SHP is used by Amazon AWS (for reranking generations), Microsoft Deepspeed Chat (to train LLMs), StableVicuna (the first open-source RLHF chatbot), and Llama-2 (one of the most widely-used LLMs).
 	  </p>
 
 	  <ul style='margin-bottom: 25px; list-style: none' id="pubs">
@@ -122,7 +112,6 @@
 	  </ul>
 
 	  <p>
-	  User utility is much more complex than just a single performance metric, yet AI evaluation often fails to go beyond accuracy on a test set.
           I introduced the notion of utility-driven evaluation, which measures not only the upside from using a model but also its costs (latency, memory, etc.)
           Working with researchers at Meta, we developed Dynaboard, a holistic evaluation-as-a-service platform for hosting benchmarks.
           Dynaboard has been used to host many challenges, including DADC (Dynamic Adversarial Data Collection), DataPerf, BabyLM, and Flores.
@@ -152,8 +141,8 @@
 	  </ul>
 
 	  <p>
-          In generative AI, we often have to ask people to rate generations, which are then aggregated across multiple individuals and used to align models with human preferences.
-          I showed that this presumes humans to be von Neumann-Morgenstern rational, which they rarely are in practice; in reality, human preferences are non-static, incomplete, and often intransitive.
+	  Modeling human objectives is hard, but is necessary because people are rarely the rational and informed actors that they are assumed to be.
+	  For example, I proved that comparing models by asking humans to rate their generations presumes them to be von Neumann-Morgenstern rational, which they rarely are in practice.
           Not taking this into account can lead to counter-intuitive conclusions, like ChatGPT being no better than models that are 10x smaller.
 	  My current work uses more recent developments in modeling preferences, such as prospect theory, to deal with this complexity.
 	  </p>

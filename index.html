@@ -92,7 +92,7 @@
 
         <h4 class="top-buffer">Recent Work (<a href="https://scholar.google.com/citations?user=7SUV6rQAAAAJ&hl=en">full list</a>)</h4>
 	  <p>
-		<b>Data: </b>Because of the principal-agent problem, datasets are often much simpler than we want.
+		<b>Data Disincentives: </b>Because of conflicting incentives between those who want data and those who provide it, datasets are often much simpler than we want.
 		I design frameworks that help researchers and engineers build higher-quality datasets.
 		For example, I proposed an information-theoretic framework for understanding dataset difficulty and then used this framework to create Stanford Human Preferences (SHP), one of the largest public datasets of human preferences over text.
 	  	SHP is used by Amazon AWS (for reranking generations), Microsoft Deepspeed Chat (to train LLMs) and Llama-2 (one of the most widely-used LLMs).
@@ -112,10 +112,10 @@
 	  </ul>
 
 	  <p>
-	  	<b>Models: </b>Modeling human objectives is hard, but is necessary because people are rarely the rational and informed actors that they are assumed to be.
-	  	For example, I proved that comparing models by asking humans to rate their generations presumes them to be von Neumann-Morgenstern rational, which they rarely are in practice.
+	  	<b>Human-Aware Objectives: </b>Methods in machine learning often make untenable assumptions about humans.
+	  	For example, I proved that the standard methods of comparing models--by asking people to rate their generations--presumes humans to be von Neumann-Morgenstern rational, which they rarely are in practice.
           	Not taking this into account can lead to counter-intuitive conclusions, like ChatGPT being no better than models that are 10x smaller.
-	  	My current work uses more recent developments in modeling preferences, such as prospect theory, to deal with this complexity.
+	  	My current work uses decision theory and behavioral economics to more explicitly model human preferences.
 	  </p>
 
 	  <ul style='margin-bottom: 25px; list-style: none' id="pubs">
@@ -128,8 +128,8 @@
 		</li>
 	  </ul>
 
-	  	  <p>
-          	<b>Evaluation: </b>I introduced the notion of utility-driven evaluation, which measures not only the upside from using a model but also its costs (latency, memory, etc.)
+	  <p>
+          	<b>Utility-Driven Evaluation: </b>In practice, people care not only about the upside from using a model but also its costs (fairness, memory, etc.).
           	Working with researchers at Meta, we developed Dynaboard, a holistic evaluation-as-a-service platform for hosting benchmarks.
           	Dynaboard has been used to host many challenges, including DADC (Dynamic Adversarial Data Collection), DataPerf, BabyLM, and Flores.
 	  	The concept of utility-driven evaluation has since gained wide acceptance and underlies many benchmarks, like Stanford's <a href="https://crfm.stanford.edu/helm/latest/">HELM</a>.

@@ -86,13 +86,20 @@
   
           <div class="col-12">
 		<p>
-			I’m a fifth-year PhD student in the Stanford CS department, where I work on bringing <b>human fault-tolerance to machine learning</b>. I draw from economics to make machine learning and NLP pipelines robust to the irrational, inconsistent, and uninformed human decisions made at every step. My work has been supported by a Facebook Fellowship and an NSERC PGS-D.
+			I’m a fifth-year PhD student in the Stanford CS department, where I work on <b>human-bound machine learning</b>.
+		</p>
+
+		<p>
+			Much like how machine learning is bound by hardware and software, it is also bound by what humans can do--in data collection, model alignment, evaluation, and more. 
+			Yet humans are usually reduced to users of AI; their critical role in building these systems gets far less attention.
+			Drawing from fields like economics, my research focuses on helping humans help AI, so that AI can in turn help humans.
 		</p>
           </div>
 
         <h4 class="top-buffer">Recent Work (<a href="https://scholar.google.com/citations?user=7SUV6rQAAAAJ&hl=en">full list</a>)</h4>
 	  <p>
-		<b>Data Disincentives: </b>Because of conflicting incentives between those who want data and those who provide it, datasets are often much simpler than we want.
+		<b>Data Disincentives: </b>
+		Because of conflicting incentives between those who want data and those who provide it, datasets are often much simpler than we want.
 		I design frameworks that help researchers and engineers build higher-quality datasets.
 		For example, I proposed an information-theoretic framework for understanding dataset difficulty and then used this framework to create Stanford Human Preferences (SHP), one of the largest public datasets of human preferences over text.
 	  	SHP is used by Amazon AWS (for reranking generations), Microsoft Deepspeed Chat (to train LLMs) and Llama-2 (one of the most widely-used LLMs).
@@ -112,19 +119,21 @@
 	  </ul>
 
 	  <p>
-	  	<b>Human-Aware Objectives: </b>Methods in machine learning often make untenable assumptions about humans.
-	  	For example, I proved that the standard methods of comparing models--by asking people to rate their generations--presumes humans to be von Neumann-Morgenstern rational, which they rarely are in practice.
-          	Not taking this into account can lead to counter-intuitive conclusions, like ChatGPT being no better than models that are 10x smaller.
-	  	My current work uses decision theory and behavioral economics to more explicitly model human preferences.
+	  	<b>Human-Centered Loss Functions: </b>
+		I showed that the success of alignment methods like PPO and DPO can in part be explained by the structure of the functions themselves, which has connections to Kahneman & Tversky's prospect theory.
+		I.e., These methods are human-centered loss functions (HALOs).
+		Using this paradigm, I designed a new alignment method called Kahneman-Tversky Optimization (KTO) that does not need pairs of preferences (A > B) to peform as well as state-of-the-art methods.
+		KTO is thus far easier to use in the real world, where preferences are scarce and expensive to collect.
 	  </p>
 
 	  <ul style='margin-bottom: 25px; list-style: none' id="pubs">
 	 	<li>	
-			<i>The Authenticity Gap in Human Evaluation.</i><br/>
-			<u>Kawin Ethayarajh</u> and Dan Jurafsky.<br/>
-		      	EMNLP 2022.<br/>
-		    	<a href="assets/emnlp_2022_paper.pdf"><span class="label label-default">paper</span></a>
+			<i>HALOS: Human-Centered Loss Functions</i><br/>
+			<u>Kawin Ethayarajh</u>, Winnie Xu, Dan Jurafsky, and Douwe Kiela.<br/>
+		      	preprint.<br/>
+		    	<a href="https://github.com/ContextualAI/HALOs/blob/main/assets/report.pdf"><span class="label label-default">technical report</span></a>
 		    	<a href="https://twitter.com/ethayarajh/status/1593028231707643904"><span class="label label-info">tweet</span></a>
+			<a href="https://github.com/ContextualAI/HALOs"><span class="label label-success">code</span></a>
 		</li>
 	  </ul>
 

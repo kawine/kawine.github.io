@@ -86,17 +86,35 @@
   
           <div class="col-12">
 		<p>
-			I’m a fifth-year PhD student in the Stanford CS department, where I work on <b>machine learning with human fault-tolerance</b>.
+			I’m a fifth-year PhD student in the Stanford CS department, where I work on <b>machine learning under real-world incentives</b>.
+			Much in the way that machine learning is bound by hardware and software, it is also bound by the incentives of real-world actors, such as workers, firms, and states.
+			Often, an actor's incentives are unstated, immutable, and conflict with the incentives of others.
+			Borrowing from fields like economics, I work on formalizing these incentives and creating tools, platforms, and algorithms that incorporate them, so that the progress we make on paper translates to the real world.
+		</p>
+		<p>
+			Highlights:
+			<ul style='margin-bottom: 25px; list-style: none' id="contributions">
+				<li><a href="https://huggingface.co/datasets/stanfordnlp/SHP">Stanford Human Preferences (SHP)</a>, the first large-scale public dataset of human preferences over text, used by Llama-2 and others.</li>
+				<li><a href="https://huggingface.co/collections/ContextualAI/archangel-65bd45029fa020161b052430">Archangel</a>, the largest suite of human feedback-aligned LLMs.</li>
+				<li><a href="https://dynabench.org/">Dynaboard</a>, an evaluation-as-a-service platform used to host Dynabench, BabyLM, and others.</li>
+				<li><a href="https://github.com/ContextualAI/HALOs">HALOs</a>, a framework for creating prospect-theoretic alignment losses (e.g., Kahneman-Tversky Optimization).</li>
+			</ul>
+		</p>
+		<p>
+			I have received an <b>ICML 2022 Outstanding Paper</b> award, a <b>Facebook Fellowship</b>, and an <b>NSERC PGS-D</b> during my PhD.
+			Prior to Stanford, I was a National Scholar at the University of Toronto.
+			<b>I am on the job market for 2024.</b>
 		</p>
           </div>
 
         <h4 class="top-buffer">Recent Work (<a href="https://scholar.google.com/citations?user=7SUV6rQAAAAJ&hl=en">full list</a>)</h4>
 	  <p>
-		<b>Data Disincentives: </b>
-		Because of conflicting incentives between those who want data and those who provide it, datasets are often much simpler than we want.
-		I design frameworks that help researchers and engineers build higher-quality datasets.
-		For example, I proposed an information-theoretic framework for understanding dataset difficulty and then used this framework to create Stanford Human Preferences (SHP), one of the largest public datasets of human preferences over text.
-	  	SHP is used by Amazon AWS (for reranking generations), Microsoft Deepspeed Chat (to train LLMs) and Llama-2 (one of the most widely-used LLMs).
+		<b>Disincentives in Data Collection</b>
+		Because of conflicting incentives between those who want data and those who provide it, datasets are often much simpler than the task they purport to reflect.
+		This is a principal-agent problem.
+		I design frameworks that help principals (e.g., researchers) build high-quality datasets by discovering mistakes and unstated assumptions made by agents (e.g., crowdworkers).
+		For example, I created Stanford Human Preferences (SHP), the first large-scale (>250K) dataset of human preferences over text.
+	  	SHP is one of the few datasets used by Amazon AWS (for reranking generations), Microsoft Deepspeed Chat (to train LLMs) and Llama-2 (one of the most widely-used LLMs).
 	  </p>
 
 	  <ul style='margin-bottom: 25px; list-style: none' id="pubs">
@@ -107,25 +125,33 @@
 		    	<a href="https://proceedings.mlr.press/v162/ethayarajh22a/ethayarajh22a.pdf"><span class="label label-default">paper</span></a>
 		    	<a href="https://twitter.com/ethayarajh/status/1449203922057400329"><span class="label label-info">tweet</span></a>
 			<a href="https://github.com/kawine/dataset_difficulty"><span class="label label-success">code</span></a>
-			<a href="https://huggingface.co/datasets/stanfordnlp/SHP"><span class="label label-danger">dataset</span></a>
 	        	<a href="https://proceedings.mlr.press/v162/ethayarajh22a.html"><span class="label label-primary">bib</span></a>
+		  </li>
+
+		  <li>
+			<i>Stanford Human Preferences (SHP).</i><br/>
+			<u>Kawin Ethayarajh</u>, Heidi Zhang, Yizhong Wang, and Dan Jurafsky.<br/>
+			(online).<br/>
+		    	<a href="https://twitter.com/ethayarajh/status/1628442002454085632?lang=en"><span class="label label-info">tweet</span></a>
+			<a href="https://huggingface.co/datasets/stanfordnlp/SHP"><span class="label label-danger">dataset</span></a>
+	        	<a href="https://proceedings.mlr.press/v162/ethayarajh22a.html"><span class="label label-primary">bib</span></a>  
 		  </li>
 	  </ul>
 
 	  <p>
-	  	<b>Human-Centered Loss Functions: </b>
-		I showed that the success of alignment methods like PPO and DPO can in part be explained by the structure of the functions themselves, which has connections to Kahneman & Tversky's prospect theory.
-		I.e., These methods are human-centered loss functions (HALOs).
-		Using this paradigm, I designed a new alignment method called Kahneman-Tversky Optimization (KTO) that does not need pairs of preferences (A > B) to peform as well as state-of-the-art methods.
+	  	<b>Pluralistic Model Alignment</b>
+		I discovered that methods for aligning LLMs with human feedback work in part because they implicitly model human biases in decision-making.
+		This means that there is not one single objective for alignment, but rather a family of <i>human-aware losses (HALOs)</i>.
+		I then designed an alignment objective based on Kahneman & Tversky's prospect theory called KTO, which can align LLMs using binary feedback alone.
 		KTO is thus far easier to use in the real world, where preferences are scarce and expensive to collect.
 	  </p>
 
 	  <ul style='margin-bottom: 25px; list-style: none' id="pubs">
 	 	<li>	
-			<i>HALOS: Human-Centered Loss Functions</i><br/>
-			<u>Kawin Ethayarajh</u>, Winnie Xu, Dan Jurafsky, and Douwe Kiela.<br/>
+			<i>Model Alignment as Prospect Theoretic Optimization.</i><br/>
+			<u>Kawin Ethayarajh</u>, Winnie Xu, Muennighoff, Dan Jurafsky, and Douwe Kiela.<br/>
 		      	preprint.<br/>
-		    	<a href="https://github.com/ContextualAI/HALOs/blob/main/assets/report.pdf"><span class="label label-default">technical report</span></a>
+		    	<a href="https://arxiv.org/abs/2402.01306"><span class="label label-default">paper</span></a>
 		    	<a href="https://twitter.com/ethayarajh/status/1593028231707643904"><span class="label label-info">tweet</span></a>
 			<a href="https://github.com/ContextualAI/HALOs"><span class="label label-success">code</span></a>
 		</li>

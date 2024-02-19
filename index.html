@@ -110,8 +110,7 @@
         <h4 class="top-buffer">Recent Work (<a href="https://scholar.google.com/citations?user=7SUV6rQAAAAJ&hl=en">full list</a>)</h4>
 	  <p>
 		<b>Disincentives in Data Collection</b>
-		Because of conflicting incentives between those who want data and those who provide it, datasets are often much simpler than the task they purport to reflect.
-		This is a principal-agent problem.
+		Dataset creation is a principal-agent problem that results in datasets often being much simpler than the tasks they purport to reflect.
 		I design frameworks that help principals (e.g., researchers) build high-quality datasets by discovering mistakes and unstated assumptions made by agents (e.g., crowdworkers).
 		For example, I created Stanford Human Preferences (SHP), the first large-scale (>250K) dataset of human preferences over text.
 	  	SHP is one of the few datasets used by Amazon AWS (for reranking generations), Microsoft Deepspeed Chat (to train LLMs) and Llama-2 (one of the most widely-used LLMs).
@@ -158,7 +157,8 @@
 	  </ul>
 
 	  <p>
-          	<b>Utility-Driven Evaluation: </b>In practice, people care not only about the upside from using a model but also its costs (fairness, memory, etc.).
+          	<b>Utility-Driven Evaluation</b>
+		Organizations care not only about the upside from using a model but also its costs (fairness, memory, etc.), which are often ignored in a research setting.
           	Working with researchers at Meta, we developed Dynaboard, a holistic evaluation-as-a-service platform for hosting benchmarks.
           	Dynaboard has been used to host many challenges, including DADC (Dynamic Adversarial Data Collection), DataPerf, BabyLM, and Flores.
 	  	The concept of utility-driven evaluation has since gained wide acceptance and underlies many benchmarks, like Stanford's <a href="https://crfm.stanford.edu/helm/latest/">HELM</a>.

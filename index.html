@@ -86,17 +86,16 @@
   
           <div class="col-12">
 		<p>
-			I’m a fifth-year PhD student in the Stanford CS department, where I work on <b>machine learning under real-world incentives</b>.
+			I’m a fifth-year PhD student in the Stanford AI Lab (SAIL), where I'm advised by Dan Jurafsky and work on <b>behavior-bound machine learning</b>.
 		</p>
 		<p>
-			Much in the way that machine learning is bound by hardware and software, it is also bound by the incentives of real-world actors, such as workers, firms, and states.
-			Often, these incentives are unstated, immutable, and conflict with one another.
-			Borrowing from fields like economics, I work on formalizing these incentives and creating tools, platforms, and algorithms that incorporate them, so that the progress we make on paper translates to the real world.
+			Machine learning is not a sterile industrial process; much in the way that it is hardware-bound and software-bound, it is also shaped by the behavior of real-world actors such as workers, firms, and states. 
+			By borrowing from fields like economics, my work tries to formalize this behavior and create algorithms, tools, and platforms that are compatible with actual actors, not just idealized ones.
 		</p>
 		<p>
 			Highlights:
 			<ul style="list-style-type: circle;" id="contributions">
-				<li><a href="https://huggingface.co/datasets/stanfordnlp/SHP">SHP</a>, the first large-scale public dataset of human preferences over text (5M examples)</li>
+				<li><a href="https://huggingface.co/datasets/stanfordnlp/SHP">SHP</a>, the first large-scale public dataset of human preferences over text (5M examples in v2.0)</li>
 				<li><a href="https://huggingface.co/collections/ContextualAI/archangel-65bd45029fa020161b052430">Archangel</a>, the largest suite of human feedback-aligned LLMs</li>
 				<li><a href="https://dynabench.org/">Dynaboard</a>, an evaluation-as-a-service platform used to host Dynabench, BabyLM, and others</li>
 				<li><a href="https://github.com/ContextualAI/HALOs">HALOs</a>, a framework for creating prospect-theoretic losses for alignment</li>
@@ -113,10 +112,11 @@
 
         <h4 class="top-buffer">Recent Work (<a href="https://scholar.google.com/citations?user=7SUV6rQAAAAJ&hl=en">full list</a>)</h4>
 	  <p>
-		<b>Disincentives in Data Collection</b>
-		Dataset creation is a principal-agent problem that results in datasets often being much simpler than the tasks they purport to reflect.
-		I design frameworks that help principals (e.g., researchers) build high-quality datasets by discovering mistakes and unstated assumptions made by agents (e.g., crowdworkers).
-		For example, I created Stanford Human Preferences (SHP), the first large-scale dataset of human preferences over text.
+		<b>Principal-Agent Problems in Data Creation</b>
+		Datasets are born of a conflict in incentives between those who pay for data (principals) and those who produce it (agents).
+		As a result, they are much simpler than the real-world problems they purport to reflect.
+		How can we shrink this gap?
+		I work on frameworks for understanding dataset difficulty and use them to create datasets like SHP, the first large-scale dataset of human preferences over text.
 	  	SHP is one of the few datasets used by Amazon AWS (for reranking generations), Microsoft Deepspeed Chat (to train LLMs) and Llama-2 (one of the most widely-used LLMs).
 	  </p>
 

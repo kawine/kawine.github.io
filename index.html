@@ -117,7 +117,7 @@
 		As a result, they are much simpler than the real-world problems they purport to reflect.
 		How can we shrink this gap?
 		I work on frameworks for understanding dataset difficulty and use them to create datasets like SHP, the first large-scale dataset of human preferences over text.
-	  	SHP is one of the few datasets used by Amazon AWS (for reranking generations), Microsoft Deepspeed Chat (to train LLMs) and Llama-2 (one of the most widely-used LLMs).
+	  	SHP is one of the few datasets used for the alignment of Llama-2 (one of the most widely-used LLMs).
 	  </p>
 
 	  <ul style='margin-bottom: 25px; list-style: none' id="pubs">
@@ -143,17 +143,17 @@
 
 	  <p>
 	  	<b>Pluralistic Model Alignment</b>
-		I discovered that methods for aligning LLMs with human feedback (e.g., RLHF, DPO) work in part because they implicitly model human biases in decision-making.
-		This means that there is not one single objective for alignment, but rather a family of <i>human-aware losses (HALOs)</i>.
-		I then designed an alignment objective based on Kahneman & Tversky's prospect theory called KTO, which can align LLMs using binary feedback alone.
-		KTO is thus far easier to use in the real world, where preferences are scarce and expensive to collect.
+		Why do alignment methods (RLHF, DPO, etc.) work so well? Is it just the data, or is there something more?
+		I study the relationship between alignment and human decision-making, as described in frameworks like Kahneman & Tversky's prospect theory.
+		My work on <i>human-aware losses (HALOs)</i>, a family of prospect theoretic objectives for alignment, suggests that there is no universal choice -- the best objective depends on the inductive biases worth incorporating for a particular setting.
+                One of these HALOs, called KTO, has become a popular option for unpaired and imbalanced human feedback, the most common type in production settings.
 	  </p>
 
 	  <ul style='margin-bottom: 25px; list-style: none' id="pubs">
 	 	<li>	
 			<i>Model Alignment as Prospect Theoretic Optimization.</i><br/>
-			<u>Kawin Ethayarajh</u>, Winnie Xu, Muennighoff, Dan Jurafsky, and Douwe Kiela.<br/>
-		      	preprint.<br/>
+			<u>Kawin Ethayarajh</u>, Winnie Xu, Niklas Muennighoff, Dan Jurafsky, and Douwe Kiela.<br/>
+		      	ICML 2024.<br/>
 		    	<a href="https://arxiv.org/abs/2402.01306"><span class="label label-default">paper</span></a>
 		    	<a href="https://twitter.com/ethayarajh/status/1593028231707643904"><span class="label label-info">tweet</span></a>
 			<a href="https://github.com/ContextualAI/HALOs"><span class="label label-success">code</span></a>
@@ -161,7 +161,7 @@
 	  </ul>
 
 	  <p>
-          	<b>Utility-Driven Evaluation</b>
+          	<b>Cost-Sensitive Evaluation</b>
 		Organizations care not only about the upside from using a model but also its costs (fairness, memory, etc.), which are often ignored in a research setting.
           	Working with researchers at Meta, we developed Dynaboard, a holistic evaluation-as-a-service platform for hosting benchmarks.
           	Dynaboard has been used to host many challenges, including DADC (Dynamic Adversarial Data Collection), DataPerf, BabyLM, and Flores.

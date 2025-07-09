@@ -86,103 +86,60 @@
   
           <div class="col-12">
 		<p>
-			As of July 2025, I will be an <b>Assistant Professor of Applied AI at UChicago Booth</b>. Currently I’m a postdoctoral fellow at Princeton Language and Intelligence (PLI), where I work on <b>behavior-bound machine learning</b>.
+			I am an <b>Assistant Professor of Applied AI and Kathryn and Grant Swick Faculty Scholar at UChicago Booth</b>, where I work on <b>behavioral machine learning</b>.
 		</p>
 		<p>
-			Machine learning is not a sterile industrial process; much in the way that it is hardware-bound and software-bound, it is also shaped by the behavior of real-world actors such as workers, firms, and states. 
-			By borrowing from fields like economics, my work tries to formalize this behavior and create algorithms, tools, and platforms that are compatible with actual actors, not just idealized ones.
+			Machine learning is not a sterile industrial process; much in the way that it is hardware-bound and software-bound, it is also bound by the behavior of real-world actors such as workers, firms, and states. 
+			By borrowing from fields like economics, my work tries to formalize this behavior and create algorithms, tools, and systems that are compatible with actual actors, not just idealized ones.
 		</p>
 		<p>
-			Highlights:
+			My work has received an <b>ICML 2022 Outstanding Paper</b> award, a <b>Facebook Fellowship</b>, and an <b>NSERC PGS-D</b>.
+			Prior to UChicago, I graduated with a PhD in Computer Science from Stanford University, where I was advised by Dan Jurafsky.
+			I have also spent time at Princeton Language & Intelligence (post-doc) and the University of Toronto (MSc, BSc).
+		</p>
+		<p>
+			Notable work:
 			<ul style="list-style-type: circle;" id="contributions">
-				<li><a href="https://huggingface.co/datasets/stanfordnlp/SHP">SHP</a>, the first large-scale public dataset of human preferences over text (5M examples in v2.0)</li>
-				<li><a href="https://huggingface.co/collections/ContextualAI/archangel-65bd45029fa020161b052430">Archangel</a>, the largest suite of human feedback-aligned LLMs</li>
-				<li><a href="https://dynabench.org/">Dynaboard</a>, an evaluation-as-a-service platform used to host Dynabench, BabyLM, and others</li>
-				<li><a href="https://github.com/ContextualAI/HALOs">HALOs</a>, a framework for creating prospect-theoretic losses for alignment</li>
+				<li>
+					A new framework for understanding dataset difficulty, based on the notion of <i>V-usable information</i>. 
+					This led to the development of <b>Stanford Human Preferences (SHP)</b>, the first large-scale open-source dataset of human preferences over text (5M examples in v2.0), based on data from Reddit and StackExchange. 
+					SHP was the only dataset from academia used in the reward modeling of Llama-2, one of the most downloaded LLMs to-date.
+
+					<ul style='margin-bottom: 25px; list-style: none' id="pubs">
+					  <li>  
+						<i>Understanding Dataset Difficulty with V-Usable Information.</i><br/>
+						<u>Kawin Ethayarajh</u>, Yejin Choi, and Swabha Swayamdipta.<br/>
+						ICML 2022 (<b>outstanding paper</b> - top 10 of 1233 accepted).<br/>
+						<a href="https://arxiv.org/abs/2110.08420"><span class="label label-default">paper</span></a>
+						<a href="https://twitter.com/ethayarajh/status/1449203922057400329"><span class="label label-info">tweet 1</span></a>
+						<a href="https://twitter.com/ethayarajh/status/1628442002454085632?lang=en"><span class="label label-info">tweet 2</span></a>
+						<a href="https://github.com/kawine/dataset_difficulty"><span class="label label-success">code</span></a>
+						<a href="https://huggingface.co/datasets/stanfordnlp/SHP"><span class="label label-danger">dataset 1</span></a>
+						<a href="https://huggingface.co/datasets/stanfordnlp/SHP-2"><span class="label label-danger">dataset 2</span></a>
+					  </li>
+					</ul>
+				</li>
+
+				<li>
+					A family of objectives for aligning generative models with feedback, based on <i>prospect theory</i> from behavioral economics.
+					Not only did this show that existing objectives (PPO, DPO) unintentionally capture qualities of human utility functions, such as loss aversion, but that we could design even better objectives by intentionally incorporating human biases.
+					One of these objectives, KTO, is the go-to option for aligning LLMs on binary feedback, especially in class-imbalanced settings that are typical of the real world.
+
+					<ul style='margin-bottom: 25px; list-style: none' id="pubs">
+						<li>	
+							<i>Model Alignment as Prospect Theoretic Optimization.</i><br/>
+							<u>Kawin Ethayarajh</u>, Winnie Xu, Niklas Muennighoff, Dan Jurafsky, and Douwe Kiela.<br/>
+						      	ICML 2024 (<b>spotlight</b> - top 3.5% of accepted).<br/>
+						    	<a href="https://arxiv.org/abs/2402.01306"><span class="label label-default">paper</span></a>
+						    	<a href="https://x.com/ethayarajh/status/1732837520784957476"><span class="label label-info">tweet</span></a>
+							<a href="https://github.com/ContextualAI/HALOs"><span class="label label-success">code</span></a>
+							<a href="https://www.forbes.com/sites/robtoews/2024/02/04/what-is-the-best-way-to-control-todays-ai/"><span class="label label-danger">press</span></a>
+						</li>
+					</ul>
+				</li>
 			</ul>
 		</p>
-		<p>
-			I have received an <b>ICML 2022 Outstanding Paper</b> award, a <b>Facebook Fellowship</b>, and an <b>NSERC PGS-D</b> during my PhD.
-			Prior to Princeton, I received a PhD in Computer Science from Stanford, where I was advised by Dan Jurafsky.
-		</p>
           </div>
-
-        <h4 class="top-buffer">Recent Work (<a href="https://scholar.google.com/citations?user=7SUV6rQAAAAJ&hl=en">full list</a>)</h4>
-	  <p>
-		<b>Data</b>
-		Datasets are born of a conflict in incentives between those who pay for data (principals) and those who produce it (agents).
-		As a result, they are much simpler than the real-world problems they purport to reflect.
-		How can we shrink this gap?
-		I work on frameworks for understanding dataset difficulty and use them to create datasets like SHP, the first large-scale dataset of human preferences over text.
-	  	SHP is one of the few datasets used for the alignment of Llama-2 (one of the most widely-used LLMs).
-	  </p>
-
-	  <ul style='margin-bottom: 25px; list-style: none' id="pubs">
-		  <li>  
-			<i>Understanding Dataset Difficulty with V-Usable Information.</i><br/>
-			<u>Kawin Ethayarajh</u>, Yejin Choi, and Swabha Swayamdipta.<br/>
-			ICML 2022 (<b>outstanding paper</b> - top 10 of 1233).<br/>
-		    	<a href="https://proceedings.mlr.press/v162/ethayarajh22a/ethayarajh22a.pdf"><span class="label label-default">paper</span></a>
-		    	<a href="https://twitter.com/ethayarajh/status/1449203922057400329"><span class="label label-info">tweet 1</span></a>
-			<a href="https://twitter.com/ethayarajh/status/1628442002454085632?lang=en"><span class="label label-info">tweet 2</span></a>
-			<a href="https://github.com/kawine/dataset_difficulty"><span class="label label-success">code</span></a>
-			<a href="https://huggingface.co/datasets/stanfordnlp/SHP"><span class="label label-danger">dataset</span></a>
-	        	<a href="https://proceedings.mlr.press/v162/ethayarajh22a.html"><span class="label label-primary">bib</span></a>
-		  </li>
-	  </ul>
-
-	  <p>
-	  	<b>Alignment</b>
-		  Alignment is monolithic: one model aligned with one method on one set of preferences is served to all users.
-		  I draw connections between behavioral economics and model alignment so that we can make alignment more pluralistic, discovering for instance, that we can draw from a whole family of <i>human-aware losses (HALOs)</i> instead of just using DPO or PPO.
-		  One of these HALOs, called KTO, has become the most popular option for aligning LLMs with unpaired and imbalanced human feedback, the most common type in production settings.
-	  </p>
-
-	  <ul style='margin-bottom: 25px; list-style: none' id="pubs">
-	 	<li>	
-			<i>Model Alignment as Prospect Theoretic Optimization.</i><br/>
-			<u>Kawin Ethayarajh</u>, Winnie Xu, Niklas Muennighoff, Dan Jurafsky, and Douwe Kiela.<br/>
-		      	ICML 2024 (<b>spotlight</b> - top 3.5%).<br/>
-		    	<a href="https://arxiv.org/abs/2402.01306"><span class="label label-default">paper</span></a>
-		    	<a href="https://x.com/ethayarajh/status/1732837520784957476"><span class="label label-info">tweet</span></a>
-			<a href="https://github.com/ContextualAI/HALOs"><span class="label label-success">code</span></a>
-		</li>
-	  </ul>
-
-	  <p>
-          	<b>Evaluation</b>
-		  The ML models that researchers consider the best are often not the ones deployed by firms in the real world.
-		  But why?
-		  The landscape in which models are deployed is heterogeneous, and firms are willing to sacrifice performance for memory efficiency, controllability, and more.
-		  I model these tradeoffs and design evaluation pipelines that better simulate real-world considerations, such as Dynaboard.
-		  Dynaboard has been used to host DADC (Dynamic Adversarial Data Collection), DataPerf, BabyLM, Flores, and many other challenges.
-	  </p>
-
-	  <ul style='margin-bottom: 25px; list-style: none' id="pubs">
-	  	<li>
-			<i>Dynaboard: An Evaluation-As-A-Service Platform for Holistic Next-Generation Benchmarking.</i><br/>
-			Zhiyi Ma<sup>*</sup>, <u>Kawin Ethayarajh</u><sup>*</sup>, Tristan Thrush<sup>*</sup>, Somya Jain, Ledell Wu, Robin Jia, Christopher Potts, Adina Williams, Douwe Kiela. (*= equal contribution)<br/>
-		      	NeurIPS 2021. <br/>
-		    	<a href="https://proceedings.neurips.cc/paper/2021/hash/55b1927fdafef39c48e5b73b5d61ea60-Abstract.html"><span class="label label-default">paper</span></a>
-			<a href="https://twitter.com/douwekiela/status/1396878157941145600"><span class="label label-info">tweet</span></a>
-			<a href="https://dynabench.org/"><span class="label label-success">demo</span></a>
-			<a href="https://venturebeat.com/2021/05/24/facebooks-dynabench-now-scores-nlp-models-for-metrics-like-fairness/"><span class="label label-danger">news</span></a> 
-			<a href="https://proceedings.neurips.cc/paper/2021/hash/55b1927fdafef39c48e5b73b5d61ea60-Abstract.html"><span class="label label-primary">bib</span></a>		 
-		</li>
-		  
-		<li>
-			<i>Utility is in the Eye of the User: A Critique of NLP Leaderboards.</i><br/>
-	            	<u>Kawin Ethayarajh</u> and Dan Jurafsky.<br/>
-		    	EMNLP 2020.<br/>
-		    	<a href="https://www.aclweb.org/anthology/2020.emnlp-main.393/"><span class="label label-default">paper</span></a>
-			<a href="https://x.com/ethayarajh/status/1311399326413922304"><span class="label label-info">tweet</span></a>
-	        	<a href="https://www.aclweb.org/anthology/2020.emnlp-main.393.bib"><span class="label label-primary">bib</span></a>
-        	</li>
-	  </ul>
-
-        </ul>
-      </div>
-
     </div> <!-- /container -->
   </body>
 </html>

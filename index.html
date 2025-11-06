@@ -86,7 +86,7 @@
   
           <div class="col-12">
 		<p>
-			I am an <b>Assistant Professor of Applied AI</b> and <b>Kathryn and Grant Swick Faculty Scholar</b> at <b>UChicago Booth</b>, where I work on behavioral machine learning.
+			I am an <b>Assistant Professor of Applied AI</b> and <b>Kathryn and Grant Swick Faculty Scholar</b> at <b>UChicago Booth</b>, where I work on behavior-bound machine learning.
 		</p>
 		<p>
 			Machine learning is not a sterile industrial process; much in the way that it is hardware-bound and software-bound, it is also bound by the behavior of real-world actors such as workers, firms, and states. 
@@ -104,7 +104,7 @@
 					A new framework for understanding dataset difficulty, based on the notion of <i>V-usable information</i>. 
 					This led to the development of <b>Stanford Human Preferences (SHP)</b>, the first large-scale open-source dataset of human preferences over text, based on data from Reddit and StackExchange. 
 					SHP was the only dataset not from Meta/OpenAI/Anthropic used to post-train Llama-2, one of the most downloaded LLMs ever. 
-					Within a year of SHP's release, Reddit started licensing its data for AI training in deals valued at 200M+.
+					Within a year of SHP's release, Reddit started licensing its data for AI training in deals valued at 200M+ USD.
 					<ul style='margin-bottom: 25px; list-style: none' id="pubs">
 					  <li>  
 						<i>Understanding Dataset Difficulty with V-Usable Information.</i><br/>
@@ -121,18 +121,29 @@
 				</li>
 
 				<li>
-					Existing post-training objectives (PPO, DPO) unintentionally capture qualities of human utility functions, such as loss aversion, but we can design even better objectives by intentionally incorporating human biases.
-					One of my proposed objectives, <b>KTO</b>, is the industry standard for aligning LLMs on binary feedback, especially in class-imbalanced settings that are typical of the real world.
-
+					Existing post-training objectives (PPO, DPO) unintentionally capture biases in how humans perceive random variables, such as loss aversion.
+					Surprisingly, these perceptual biases help make the aligned model more performant, even when the goal is not necessarily to increase human utility, as in mathematical reasoning.
+					By more thoroughly incorporating these perceptual biases, we can create post-training techniques that are more efficient and flexible: 
+					<b>KTO</b>, is the industry standard for aligning LLMs on binary feedback, especially in class-imbalanced settings that are typical of the real world;
+					<b>humanline variants</b> of DPO/KTO/GRPO erase the gap between offline and online alignment.
 					<ul style='margin-bottom: 25px; list-style: none' id="pubs">
 						<li>	
 							<i>Model Alignment as Prospect Theoretic Optimization.</i><br/>
 							<u>Kawin Ethayarajh</u>, Winnie Xu, Niklas Muennighoff, Dan Jurafsky, and Douwe Kiela.<br/>
-						      	ICML 2024 (<b>spotlight</b> - top 3.5% of accepted).<br/>
-						    	<a href="https://arxiv.org/abs/2402.01306"><span class="label label-default">paper</span></a>
-						    	<a href="https://x.com/ethayarajh/status/1732837520784957476"><span class="label label-info">tweet</span></a>
+						       ICML 2024 (<b>spotlight</b> - top 3.5% of accepted).<br/>
+						    <a href="https://arxiv.org/abs/2402.01306"><span class="label label-default">paper</span></a>
+						    <a href="https://x.com/ethayarajh/status/1732837520784957476"><span class="label label-info">tweet</span></a>
 							<a href="https://github.com/ContextualAI/HALOs"><span class="label label-success">code</span></a>
 							<a href="https://www.forbes.com/sites/robtoews/2024/02/04/what-is-the-best-way-to-control-todays-ai/"><span class="label label-danger">press</span></a>
+						</li>
+
+						<li>	
+							<i>Online Alignment as Perceptual Loss.</i><br/>
+							   Sijia Liu, Niklas Muennighoff, <u>Kawin Ethayarajh</u>.<br/>
+						       preprint.<br/>
+						    <a href="https://arxiv.org/abs/2509.24207"><span class="label label-default">paper</span></a>
+						    <a href="https://x.com/ethayarajh/status/1973901333557346803"><span class="label label-info">tweet</span></a>
+							<a href="https://github.com/ContextualAI/HALOs/tree/research"><span class="label label-success">code</span></a>
 						</li>
 					</ul>
 				</li>

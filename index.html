@@ -121,11 +121,11 @@
 				</li>
 
 				<li>
-					Existing post-training objectives (PPO, DPO) unintentionally capture biases in how humans perceive random variables, such as loss aversion.
+					Post-training objectives (PPO, DPO) unintentionally capture biases like loss aversion in how humans perceive random variables.
 					Surprisingly, these perceptual biases help make the aligned model more performant, even when the goal is not necessarily to increase human utility, as in mathematical reasoning.
-					By more thoroughly incorporating these perceptual biases, we can create post-training techniques that are more efficient and flexible: 
-					<b>KTO</b>, is the industry standard for aligning LLMs on binary feedback, especially in class-imbalanced settings that are typical of the real world;
-					<b>humanline variants</b> of DPO/KTO/GRPO erase the gap between offline and online alignment.
+					By more deeply using these perceptual biases, we can create post-training techniques that are more efficient and flexible: 
+					<b>KTO</b> is the industry standard for aligning LLMs on binary feedback, especially in class-imbalanced settings typical of the real world;
+					<b>humanline variants</b> erase the gap between offline and online alignment.
 					<ul style='margin-bottom: 25px; list-style: none' id="pubs">
 						<li>	
 							<i>Model Alignment as Prospect Theoretic Optimization.</i><br/>

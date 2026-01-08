@@ -1,0 +1,26 @@
+# Jekyll configuration for GitHub Pages
+
+# Site information for SEO
+title: Kawin Ethayarajh
+description: Assistant Professor of Applied AI at UChicago Booth, working on behavior-bound machine learning
+url: https://kawine.github.io
+author:
+  name: Kawin Ethayarajh
+  email: kawin.ethayarajh@chicagobooth.edu
+
+# Markdown processor
+markdown: kramdown
+
+# Permalink structure for blog posts
+permalink: /blog/:title.html
+
+# Plugins
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude files from processing
+exclude:
+  - CLAUDE.md
+  - Gemfile
+  - Gemfile.lock

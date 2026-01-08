@@ -1,0 +1,101 @@
+---
+layout: none
+title: Blog
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% seo title="Blog" %}
+
+    <style type="text/css">
+      body {
+        font-family: serif;
+        font-size: 16px;
+        line-height: 1.4;
+        max-width: 650px;
+        margin: 50px auto;
+        padding: 0 10px;
+      }
+
+      h1 {
+        font-weight: bold;
+        font-size: 32px;
+        margin-bottom: 40px;
+      }
+
+      .back-link {
+        margin-bottom: 40px;
+        font-size: 14px;
+      }
+
+      .back-link a {
+        text-decoration: none;
+      }
+
+      .post-list {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .post-list li {
+        margin-bottom: 40px;
+      }
+
+      .post-title {
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+
+      .post-title a {
+        color: #000;
+        text-decoration: none;
+      }
+
+      .post-title a:hover {
+        text-decoration: underline;
+      }
+
+      .post-date {
+        color: #666;
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+
+      .post-excerpt {
+        color: #333;
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="back-link">
+      <a href="/">← Back to Home</a>
+    </div>
+
+    <h1>Blog</h1>
+
+    <ul class="post-list">
+      {% for post in site.posts %}
+        <li>
+          <div class="post-title">
+            <a href="{{ post.url }}">{{ post.title }}</a>
+          </div>
+          <div class="post-date">{{ post.date | date: "%B %d, %Y" }}</div>
+          {% if post.excerpt %}
+            <div class="post-excerpt">{{ post.excerpt }}</div>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+
+    {% if site.posts.size == 0 %}
+      <p style="color: #999;">No posts yet. Check back soon!</p>
+    {% endif %}
+  </body>
+</html>

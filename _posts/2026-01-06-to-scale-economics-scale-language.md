@@ -100,13 +100,13 @@ For a model that has seen all this, the set of counterfactual regimes that are b
 
 **Reproducibility.** Running the same prompt twice may give you different reasoning chains. For policy applications that demand consistency and accountability, this is a problem.
 
-These are real concerns, but they're addressable. Compute costs are falling, interpretability research is advancing, and models are becoming more steerable. People had many of the same concerns about scaling LLMs, and slowly but surely, we've been able to address most of those concerns.
+These are real concerns, but they're addressable. Compute costs are falling, interpretability research is advancing, and models are becoming more steerable. People had many of the same concerns about scaling LLMs, and slowly but surely, we've been able to address most of them.
 
 ## Conclusion
 
-The economists getting scaling-pilled are on the right track. Structure should be learned, not assumed. General methods that leverage computation will win.
+The economists getting scaling-pilled are on the right track: structure should be learned, not assumed, and general methods that leverage computation will win.
 
-But the lesson isn't to throw Transformers at time series. The lesson is to throw reasoning models at the vast corpus of human economic thought. That's where the structure lives, and that's how we'll build models that don't just fit the past, but anticipate the future.
+But it's not enough to scale; we need to scale the right thing. The best option we have is throw reasoning models at the vast corpus of human economic thought. That's where the structure lives, and that's how we'll build models that don't just fit the past, but anticipate the future.
 
 To scale economics, scale language.
 

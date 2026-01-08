@@ -120,4 +120,4 @@ To scale economics, scale language.
 
 [^3]: Lucas, R. (1976). Econometric Policy Evaluation: A Critique. Carnegie-Rochester Conference Series on Public Policy.
 
-[^5]: See Bybee (2025), [The Ghost in the Machine: Generating Beliefs with Large Language Models](https://lelandbybee.com/files/LLM.pdf). 
+[^5]: Leland Bybee has made a similar point across his papers, e.g., [The Ghost in the Machine: Generating Beliefs with Large Language Models](https://lelandbybee.com/files/LLM.pdf). 

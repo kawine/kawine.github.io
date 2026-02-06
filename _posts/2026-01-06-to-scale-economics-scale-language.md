@@ -8,11 +8,18 @@ excerpt: Economists are finally becoming scaling-pilled. But to circumvent the L
 
 Economists are becoming scaling-pilled.[^0]
 
-A recent post by Alex Imas and Arpit Gupta asks whether Transformers can learn economic relationships.[^1] They train a Transformer on data simulated from a New Keynesian model and find that it handily beats traditional VAR approaches by an order of magnitude. Their conclusion: structure should be "something which can be learned, rather than assumed."
+A recent post[^1] by Alex Imas and Arpit Gupta asks whether Transformers can, in a narrow sense, learn economic relationships. 
+They train a Transformer on data simulated from a New Keynesian model and find that it handily outperforms traditional VAR approaches at forecasting—and by an order of magnitude no less. 
+Their conclusion: structure should be "something which can be learned, rather than assumed."
 
-This is the right instinct. For decades, the bitter lesson[^2] has played out across AI: general methods that leverage computation beat approaches built on human-encoded knowledge, every time. Chess engines that searched deeper beat engines stuffed with grandmaster heuristics. Language models that scaled on web text beat models with hand-crafted grammars and ontologies. The pattern is so consistent that it should update our priors on any field where we currently rely on stylized structural assumptions—economics included.
+This is the right instinct. For decades, the bitter lesson[^2] has played out across AI: general methods that leverage computation beat approaches built on human-encoded knowledge. 
+Chess engines that searched deeper beat engines stuffed with grandmaster heuristics; language models that scaled on web-scale text beat models with hand-crafted grammars and ontologies, even on tasks they weren't explicitly trained to do. 
+This pattern is so consistent that it should update our priors on any field where we currently rely on stylized structural assumptions, economics included.
 
-But here's my concern: the conversation on scaling economic models has largely focused on _time series_. This seems to be a hangover from how models are currently built, and such models would scale poorly. To successfully scale in economics—to the point where we can circumvent the Lucas critique—we need to scale models that _reason in language_.
+But here's my concern: the conversation on scaling economic models has largely focused on _time series_, which seems to be a hangover from how models are currently built. 
+This would scale poorly. 
+
+To successfully scale in economics, we need to scale models that _reason in language_.
 
 ## The Lucas Critique, Revisited
 
@@ -20,37 +27,46 @@ Imas and Gupta have a great summary of Robert Lucas's famous 1976 argument:[^3]
 
 > ... economists had been interpreting correlational relationships from historical data as structural, meaning they were invariant to policy changes. But they weren’t. The economic agents which generated the data may change their behavior in reaction to changes in policy, which—as the Phillips curve example showed—can shift the observed relationship between variables.
 
-The Phillips curve proposed an inverse relationship between inflation and unemployment. Policymakers thought they could choose a point on the downward-sloping menu, trading off low unemployment for higher inflation (or vice versa) using fiscal/monetary tools. However, this relationship broke down in the 1970s amidst supply shocks and changing expectations of inflation.
+The Phillips curve proposed an inverse relationship between inflation and unemployment. 
+Because this relationship held historically, policymakers thought they could choose a point on the downward-sloping menu, trading off low unemployment for higher inflation (or vice versa) using fiscal and monetary tools. 
+However, this relationship broke down during the _stagflation_ era of the 1970s, amidst supply shocks and changing expectations of inflation.
 
-The standard response to Lucas's critique has been to build "structural" models—models that explicitly represent agents' preferences, beliefs, and constraints. The idea is that these deep parameters are invariant to policy, so if you get them right, your model survives regime changes.
+The standard response to Lucas's critique has been to build "structural" models—models that explicitly represent agents' preferences, beliefs, and constraints. 
+The idea is that these deep parameters are invariant to policy, so if you get them right, your model survives regime changes.
 
-But in practice, getting them right is very hard. Structural models require strong assumptions that are often wrong, and the models—because they need to be human-legible—are much simpler than the true underlying structure. And even when they're approximately right, they miss the rich and nuanced way in which agents actually form expectations: by browsing the Internet, watching the news, and talking to each other. If economic decisions are downstream of reasoning in language, our economic models should reason in language too.[^5]
+But in practice, getting them right is very hard. 
+Structural models require strong assumptions that are often wrong, and the models—because they need to be human-legible—are much simpler than the true state of the world. 
+And even when they're approximately right, they miss the rich and nuanced way in which agents actually form expectations: by browsing the Internet, watching the news, and talking to each other. 
+If economic decisions are downstream of agents reasoning in language, our economic models should reason in language too.[^5]
 
 ## Why Time-Series Is Not All You Need
 
-The Imas–Gupta result is a useful one, but it’s best read as a proof of capacity: a sufficiently large Transformer can, in principle, learn NK-like structure from data without being handed the structure upfront. In their setup, that’s possible because the model can be trained on arbitrarily many samples from a known simulation.
-
-In practice, we have to learn from real economic data. And real economic data has three properties that make time-series-only scaling a dead end.
+The Imas–Gupta result is a useful one, but it’s best read as a proof of capacity: given any NK model, there is a Transformer that can be trained to recover it, provided enough data is sampled.
+In practice however, we have to learn from real economic data, and real economic data has three properties that make time-series-only scaling a dead end.
 
 ### 1. Data Scarcity
 
-Large models are data-hungry, but economic regimes change faster than data accumulates. We get one Great Recession, one COVID shock, one period of post-pandemic inflation. By the time you have enough data to learn the structure of a regime, you're in a new regime.
+Economic regimes can change faster than we can collect data for them. There is only one Great Recession, one COVID shock, and one period of post-pandemic inflation in modern history. By the time we have enough data to learn the structure of a regime, we're in a new regime.
 
-Consider COVID-era inflation. In early 2020, a purely time-series model would have seen decades of stable, low inflation. Nothing in the historical CPI series would suggest that inflation was about to spike to 9%. The structural break happened because of something outside the time series: a worldwide pandemic that disrupted supply chains, followed by unprecedented fiscal and monetary stimulus.
+Consider COVID-era inflation. In early 2020, a purely time-series model would have seen decades of stable, low inflation. Nothing in the historical CPI series would suggest that inflation was about to spike to 9%. 
+The structural break happened because of something outside the time series: a worldwide pandemic that disrupted supply chains, followed by an unprecedented level of fiscal and monetary stimulus.
+Anticipating this from time series alone would be impossible; in the best case, there would be a substantial lag as the model tried to adjust.
 
-If regimes change faster than you can learn them, you're always fitting stale structure.
-
-Imas–Gupta circumvent this by sampling as needed from their NK simulation. But we can't conjure arbitrary samples of real-world regime changes. What we can do is leverage a different (and massively larger) source of information: the vast corpus of human reasoning about the world, encoded in language.
+Imas–Gupta circumvent this by working in one regime and sampling arbitrarily large amounts of data from it. 
+But we can't conjure arbitrary samples of real-world regime changes. 
+What we can do is leverage a different (and massively larger) source of information: the vast corpus of human reasoning about the world, encoded in language.
 
 ### 2. Computational Inefficiency
 
-Time series models waste compute on redundant information. Consider weekly inflation readings over a stable period. Each data point is highly correlated with its neighbors; the marginal information per observation is low. Yet an attention-based model must attend over all of them, incurring $O(n^2)$ cost in sequence length $n$.
+Time series models waste compute on redundant information. Consider weekly inflation readings over a stable period: each data point is highly correlated with its neighbors, so the marginal information per observation is low. Yet an attention-based model must attend over all of them, incurring $O(n^2)$ cost in sequence length $n$.
 
 This mirrors a known issue in language modeling. In principle, you could train on raw bytes instead of tokens, preserving more information. In practice, nobody does this because the improvement in performance is marginal (if there is any improvement to begin with) while the computational cost is prohibitive—you'd be spending attention on individual characters when words or subwords suffice.
 
-The same logic applies to economic time series. Instead of feeding a model 52 weekly inflation readings, you could describe the same information as: "inflation was stable at 2.1% throughout 2019." Is this lossy? Yes. But you can now use all the leftover space in your context window to cram other important information, like unemployment rates, consumer confidence, and more.
+The same logic applies to economic time series. Instead of feeding a model 52 weekly inflation readings, you could describe the same information as: "inflation was stable at 2.1% throughout 2019." Is this lossy? Yes, but you can now use all the leftover room in your context window to cram other important information, like unemployment rates and consumer confidence.
 
-Not only is this more efficient, it's a much *more natural* representation of how economic information is actually communicated and acted upon. Policymakers don't stare at raw time series; they read summary reports, memos, and news articles. A language-based approach lets the model operate at the appropriate level of abstraction.
+Not only is this more efficient, it's a much *more natural* representation of how economic information is actually communicated and acted upon. 
+Policymakers don't stare at raw time series; they read summary reports, listen to the news, and talk amongst themselves. 
+A language-based approach lets the model operate at the appropriate level of abstraction.
 
 ### 3. Modality Constraints
 
@@ -62,7 +78,7 @@ A reasoning model that processes language (and images, and tables, and summaries
 
 ## The Case for Reasoning Models
 
-What we need is a model that can *reason* about economic structure, not just fit it. This is where large reasoning models—models that can deliberate at inference time over evidence before answering—start to matter.
+This is where large reasoning models—models that can deliberate at inference time over evidence before answering—start to matter.
 
 Consider the COVID inflation example again. In February 2020, a reasoning model could read:
 
@@ -70,13 +86,13 @@ Consider the COVID inflation example again. In February 2020, a reasoning model 
 2. Government statements about possible lockdowns
 3. Analysis pieces about supply chain dependencies on China
 
-From this, it could reason: "A global pandemic seems likely. Lockdowns will disrupt production. Fiscal stimulus is probable. Supply-constrained economies with excess demand will see inflation." This is not a prediction from simply fitting $y_t$ on $y_{t-1}$, but a prediction from understanding how the world works.
+From this, it could reason as follows: "A global pandemic seems likely, so governments may institute lockdowns to prevent spread. Lockdowns will disrupt production. To prevent credit from drying up, fiscal and monetary stimulus will probably be provided. Thus supply-constrained economies with excess demand will see inflation." This is not a prediction from simply fitting $y_t$ on $y_{t-1}$, but a prediction from understanding how the world works.
 
 ### Circumventing the Lucas Critique
 
 A reasoning model has a shot at anticipating how agents change their behavior in response to regime changes if the model is conditioned on the proposed intervention and can simulate how agents would update.
 
-This is qualitatively different from fitting reduced-form relationships. Instead of learning "when $x$ goes up, $y$ goes down", the model learns *why* $y$ goes down when $x$ goes up—the mechanism, the agent reasoning, and the (dis)equilibrium logic. And when the mechanism changes, it can update accordingly.
+This is qualitatively different from fitting reduced-form relationships. Instead of learning "when $x$ goes up, $y$ goes down", the model learns *why* $y$ goes down when $x$ goes up—the mechanism, the agent reasoning, and the (dis)equilibrium logic. When the mechanism changes, it can update accordingly.
 
 Formally, let $r_t \in \mathcal{R}$ denote the economic regime at time $t$, and let $\mathcal{L}_t$ denote the set of language signals (news, policy statements, etc.) available at time $t$. A reasoning model learns:
 
@@ -96,11 +112,11 @@ For a model that has seen all this, the set of counterfactual regimes that are b
 
 **Computational cost.** Reasoning models generate many tokens before producing an answer. At inference time, this can be expensive—potentially prohibitive for real-time forecasting applications. The scale at which you can get a generally useful model is likely beyond what you can create in academia.
 
-**Auditability.** Structural econometric models are transparent: you can inspect the assumptions, trace the logic, debate the parameter choices. A reasoning model's chain-of-thought is less legible. This is analogous to the contrast between linguistics (where we want to _understand_ language) and language modeling (where we want to _predict_ language). Embracing scaling requires accepting discomfort with not understanding.
+**Auditability.** Structural econometric models are transparent: you can inspect the assumptions, trace the logic, and debate the parameter choices. A reasoning model's chain-of-thought is far less legible. This is analogous to the contrast between linguistics (where we want to _understand_ language) and language modeling (where we want to _predict_ language). Embracing scaling requires conceding that we won't understand how the model works, which most economists are deeply uncomfortable with.
 
 **Reproducibility.** Running the same prompt twice may give you different reasoning chains. For policy applications that demand consistency and accountability, this is a problem.
 
-These are real concerns, but they're addressable. Compute costs are falling, interpretability research is advancing, and models are becoming more steerable. People had many of the same concerns about scaling LLMs, and slowly but surely, we've been able to address most of them.
+These are real concerns, but they're addressable. Compute costs are falling, interpretability research is advancing, and models are becoming more steerable. People had many of the same concerns about scaling LLMs, which have seen dramatic improvement on all these fronts. 
 
 ## Conclusion
 

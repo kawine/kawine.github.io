@@ -5,8 +5,7 @@ date: 2026-02-17
 author: Kawin Ethayarajh
 excerpt: Coding agents can become haunted by phantom remnants of prior context—enough to influence model behavior but not enough for the model to act according to your expectations.
 ---
-The most hated part of Claude Code is _compaction_. But why? 
-<!-- To quote @yacineMTB -->
+The most hated part of Claude Code is _compaction_. But why?
 
 <img src="/assets/blog/teaser.png" alt="Alt text" style="max-width: 100%;">
 
@@ -91,10 +90,8 @@ This does two things:
 1. It preserves headroom in the parent context window. The parent can keep more of the true conversation history around, so you hit the compaction threshold later (or not at all).
 2. It keeps the parent policy closer to human expectations. Because the parent isn’t constantly rewriting itself around an ever-growing scratchpad, it’s less likely to drift into the weird "half-remembered, half-invented" state that shows up right after compaction.
 
-RLMs sharpen this idea: the "agent" is explicitly a composition $y \sim f_\theta(x, z)$ where $z$ is produced by a recursive call $z \sim g_\theta(x)$. In practice, that means computation happens in the sub-call, and the parent only needs to retain (i) the decision to call, and (ii) the returned $z$. 
-
 But if the parent crosses the context limit, compaction still happens and the same perceptual mismatch problem returns.
-Moreover, sub-agents return _summaries by design_, meaning that we're still living inside a hierarchy of compactions.
+Moreover, sub-agents return _partial views by design_, meaning that we're still living inside a hierarchy of compactions.
 
 At the end of the day, neither sub-agents nor RLMs make compaction perceptually aligned (nor is it their goal to do so!). 
 But in reducing the demand for compaction, they still markedly improve the user experience.
@@ -103,9 +100,7 @@ But in reducing the demand for compaction, they still markedly improve the user 
 ## Open Problems
 
 There are three ways to deal with context ghosts:
-1. (old) Try to avoid them by scoping out modular tasks that fit within the span of a single conversation, or by offloading as much of the computation as possible to other models, à la sub-agents and RLMs. 
-<!-- This is a common recommendation in Claude Code tutorials. -->
- <!-- like the now-famous one by @eyad_khrais.  -->
+1. (old) Try to avoid them by scoping out modular tasks that fit within the span of a single conversation, or by offloading as much of the computation as possible to other models, à la sub-agents and RLMs.
 2. (old) Give the compacted model more context, steering it towards the desired behavior, at the cost of your own time and more tokens. This is what I end up doing most of the time, even though I recognize it as sub-optimal (in my defense, I suspect that I am not alone in doing so).
 3. (new!) **Make the compacted model better fit the _human perception of how it should behave_, either by changing the model's behavior through the compacted summary or by changing what the user expects of the compacted model.** The second-order change is what is most interesting. It is tautological that any summary will be lossy, but the lossiness need not create context ghosts. If the agent is transparent and explicit about what is distilled and what is not, its limitations go from eerie to mundane. But what is the best way to do this---a diff of what was retained vs. dropped? A confidence flag? An agent that more proactively asks questions? 
 

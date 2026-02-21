@@ -51,7 +51,7 @@ Collectively, these insights into how humans actually make monetary decisions we
 What's fascinating is that prospect theory has crept into post-training without us even realizing it. 
 If, instead of using monetary rewards measured in dollars, we switched to implied rewards (i.e., surprisal in the post-training sense) measured in bits of information, we can frame the goal of post-training as follows: increase the implied rewards of "good" outputs and decrease the implied rewards of "bad" ones.
 The specific objective we use shapes the utility and probability of these implied rewards.
-DPO, PPO, and GRPO, it turns out, [carve out a utility function that is very similar to the typical human's utility function in prospect theory](https://arxiv.org/abs/2402.01306).
+DPO, PPO, and GRPO, it turns out, [carve out a utility function that is very similar to the typical human's utility function in prospect theory](https://x.com/DanielCHTan97/status/2002706328217936349).
 
 But human perception also biases how we see probability: we overestimate the chance of near-impossible events (getting hit by lightning) and near-certain ones (getting to work) at the expense of everything else.
 It turns out that when we sample from the model we're post-training and then clip the implied rewards, as done in PPO and GRPO, we effectively change their distribution in a way that reflects the human-biased perception---this is called [_humanline sampling_](https://arxiv.org/abs/2509.24207).
@@ -75,7 +75,7 @@ If $F(\cdot\mid x, \texttt{summary}; \theta)$ is the cumulative distribution ove
 
 $$H(F(\cdot \mid x,\texttt{summary}; \theta)) \approx H(F(\cdot \mid x,\texttt{history}; \theta))$$
 
-If the compacted summary loses a minor edge-case constraint, the literal probability shift is small, but the human user, who expects strict adherence to the conversation history, perceives this as a massive failure.
+If the compacted summary loses a minor edge-case constraint, the literal probability shift is small, but the human user, who expects strict adherence to the conversation history, could perceive this as a massive failure.
 Compaction today tends to meet neither condition: it doesn’t reliably preserve the literal distribution over outputs, and it definitely doesn’t preserve the human-perceived distribution over implied rewards.   
 
 
@@ -96,15 +96,17 @@ RLMs sharpen this idea: the "agent" is explicitly a composition $y \sim f_\theta
 But if the parent crosses the context limit, compaction still happens and the same perceptual mismatch problem returns.
 Moreover, sub-agents return _summaries by design_, meaning that we're still living inside a hierarchy of compactions.
 
-At the end of the day, neither sub-agents nor RLMs make compaction perceptually aligned, just rarer.
+At the end of the day, neither sub-agents nor RLMs make compaction perceptually aligned (nor is it their goal to do so!). 
+But in reducing the demand for compaction, they still markedly improve the user experience.
 
 
 ## Open Problems
 
 There are three ways to deal with context ghosts:
-1. (old) Try to avoid them by scoping out modular tasks that fit within the span of a single conversation, or by offloading as much of the computation as possible to other models, à la sub-agents and RLMs. This is a common recommendation in Claude Code tutorials.
+1. (old) Try to avoid them by scoping out modular tasks that fit within the span of a single conversation, or by offloading as much of the computation as possible to other models, à la sub-agents and RLMs. 
+<!-- This is a common recommendation in Claude Code tutorials. -->
  <!-- like the now-famous one by @eyad_khrais.  -->
-2. (old) Give the compacted model more context, steering it towards the desired behavior, at the cost of your own time and more input tokens. This is what I end up doing most of the time, even though I recognize it as sub-optimal (in my defense, I suspect that I am not alone in doing so!).
+2. (old) Give the compacted model more context, steering it towards the desired behavior, at the cost of your own time and more tokens. This is what I end up doing most of the time, even though I recognize it as sub-optimal (in my defense, I suspect that I am not alone in doing so).
 3. (new!) **Make the compacted model better fit the _human perception of how it should behave_, either by changing the model's behavior through the compacted summary or by changing what the user expects of the compacted model.** The second-order change is what is most interesting. It is tautological that any summary will be lossy, but the lossiness need not create context ghosts. If the agent is transparent and explicit about what is distilled and what is not, its limitations go from eerie to mundane. But what is the best way to do this---a diff of what was retained vs. dropped? A confidence flag? An agent that more proactively asks questions? 
 
 In an ideal world, interacting with a coding agent would be a truly seamless experience, with context windows that feel infinite even when they aren't.

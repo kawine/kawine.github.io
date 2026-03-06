@@ -106,8 +106,8 @@ layout: none
 			<ul style="list-style-type: circle;" id="contributions">
 				<li>
 					A new framework for understanding dataset difficulty, based on the notion of <i>V-usable information</i>. 
-					This led to the development of <b>Stanford Human Preferences (SHP)</b>, the first large-scale open-source dataset of human preferences over text, based on data from Reddit and StackExchange. 
-					SHP was the only dataset not from Meta/OpenAI/Anthropic used to post-train Llama-2, one of the most downloaded LLMs ever. 
+					This led to the development of <b>Stanford Human Preferences (SHP)</b>, the first large-scale dataset of human preferences over natural text, based on data from Reddit. 
+					SHP was the only academic dataset used to post-train Llama-2, one of the most downloaded LLMs ever; the other datasets were from the likes of OpenAI and Meta itself.
 					Within a year of SHP's release, Reddit started licensing its data for AI training in deals valued at 200M+ USD.
 					<ul style='margin-bottom: 25px; list-style: none' id="pubs">
 					  <li>  
@@ -125,11 +125,10 @@ layout: none
 				</li>
 
 				<li>
-					Post-training objectives (PPO, DPO) unintentionally capture biases like loss aversion in how humans perceive random variables.
-					Surprisingly, these perceptual biases help make the aligned model more performant, even when the goal is not necessarily to increase human utility, as in mathematical reasoning.
-					By more deeply using these perceptual biases, we can create post-training techniques that are more efficient and flexible: 
-					<b>KTO</b> is the industry standard for aligning LLMs on binary feedback, especially in class-imbalanced settings typical of the real world;
-					<b>humanline variants</b> erase the gap between offline and online alignment.
+					Post-training objectives (PPO, DPO) capture perceptual biases in how humans perceive random variables, like loss aversion.
+					Surprisingly, these biases make post-training more efficient and performant.
+					By more deeply integrating these biases, we can thus create post-training techniques that are even more efficient, performant, flexible to use: 
+					<b>KTO</b> is the industry standard for aligning LLMs on offline binary feedback; <b>humanline variants</b> erase the gap between offline and online alignment.
 					<ul style='margin-bottom: 25px; list-style: none' id="pubs">
 						<li>	
 							<i>Model Alignment as Prospect Theoretic Optimization.</i><br/>
@@ -144,13 +143,28 @@ layout: none
 						<li>	
 							<i>Online Alignment as Perceptual Loss.</i><br/>
 							   Sijia Liu, Niklas Muennighoff, <u>Kawin Ethayarajh</u>.<br/>
-						       preprint.<br/>
+						       ICLR 2026.<br/>
 						    <a href="https://arxiv.org/abs/2509.24207"><span class="label label-default">paper</span></a>
 						    <a href="https://x.com/ethayarajh/status/1973901333557346803"><span class="label label-info">tweet</span></a>
 							<a href="https://github.com/ContextualAI/HALOs/tree/research"><span class="label label-success">code</span></a>
 						</li>
 					</ul>
 				</li>
+
+        <li>
+          Contextual representations from LLMs are <b>anisotropic</b>: they occupy a narrow cone in vector space, making cosine similarity unreliable as a measure of semantic relatedness. 
+          This paper identified and named the phenomenon, which has since become a foundational concept in NLP—cited as core motivation for contrastive learning approaches like SimCSE, embedding post-processing methods like whitening, and a broad literature on improving text representations.
+          <ul style='margin-bottom: 25px; list-style: none' id="pubs">
+            <li>
+            	<i>How Contextual are Contextualized Word Representations? Comparing the Geometry of BERT, ELMo, and GPT-2 Embeddings.</i><br/>
+            	<u>Kawin Ethayarajh</u>.<br/>
+	    	      EMNLP 2019 (<b>oral</b>).<br/>
+              <a href="https://www.aclweb.org/anthology/D19-1006"><span class="label label-default">paper</span></a>
+              <a href="https://twitter.com/ethayarajh/status/1225843038099931137"><span class="label label-info">tweet</span></a>
+              <a href="https://github.com/kawine/contextual"><span class="label label-success">code</span></a>
+            </li>
+          </ul>
+        </li>
 			</ul>
 		</p>
           </div>

@@ -93,8 +93,8 @@ layout: none
 			I am an <b>Assistant Professor of Applied AI</b> and <b>Kathryn and Grant Swick Faculty Scholar</b> at <b>UChicago Booth</b>, where I work on behavior-bound machine learning.
 		</p>
 		<p>
-			Machine learning is not a sterile industrial process; much in the way that it is hardware-bound and software-bound, it is also bound by the behavior of real-world actors such as workers, firms, and states. 
-			By borrowing from fields like economics, my work tries to formalize this behavior and create algorithms, tools, and systems that are compatible with actual actors, not just idealized ones.
+			Machine learning is not a sterile industrial process; much in the way that it is hardware-bound and software-bound, it is also bound by the behavior of real-world actors such as workers, firms, and states.
+			I create machines that are compatible with actual actors, not just idealized ones. 
 		</p>
 		<p>
 			My work has received an <b>ICML 2022 Outstanding Paper</b> award, a <b>Facebook Fellowship</b>, and an <b>NSERC PGS-D</b>.
@@ -103,9 +103,9 @@ layout: none
 		</p>
 		<p>
 			Notable work:
-			<ul style="list-style-type: circle;" id="contributions">
+			<ul style="list-style-type: none;" id="contributions">
 				<li>
-					A new framework for understanding dataset difficulty, based on the notion of <i>V-usable information</i>. 
+					We propose framing dataset difficulty as the lack of <i>V-usable information</i>. 
 					This led to the development of <b>Stanford Human Preferences (SHP)</b>, the first large-scale dataset of human preferences over natural text, based on data from Reddit. 
 					SHP was the only academic dataset used to post-train Llama-2, one of the most downloaded LLMs ever; the other datasets were from the likes of OpenAI and Meta itself.
 					Within a year of SHP's release, Reddit started licensing its data for AI training in deals valued at 200M+ USD.
@@ -125,46 +125,45 @@ layout: none
 				</li>
 
 				<li>
-					Post-training objectives (PPO, DPO) capture perceptual biases in how humans perceive random variables, like loss aversion.
-					Surprisingly, these biases make post-training more efficient and performant.
-					By more deeply integrating these biases, we can thus create post-training techniques that are even more efficient, performant, flexible to use: 
+					We prove that the top post-training objectives (PPO, DPO) capture perceptual biases in how humans see random variables.
+					Surprisingly, these biases—like loss aversion—make post-training more efficient and performant than it otherwise would be.
+					By more intentionally integrating these biases, we create new post-training techniques: 
 					<b>KTO</b> is the industry standard for aligning LLMs on offline binary feedback; <b>humanline variants</b> erase the gap between offline and online alignment.
 					<ul style='margin-bottom: 25px; list-style: none' id="pubs">
 						<li>	
-							<i>Model Alignment as Prospect Theoretic Optimization.</i><br/>
+							<i>KTO: Model Alignment as Prospect Theoretic Optimization.</i><br/>
 							<u>Kawin Ethayarajh</u>, Winnie Xu, Niklas Muennighoff, Dan Jurafsky, and Douwe Kiela.<br/>
 						       ICML 2024 (<b>spotlight</b> - top 3.5% of accepted).<br/>
-						    <a href="https://arxiv.org/abs/2402.01306"><span class="label label-default">paper</span></a>
-						    <a href="https://x.com/ethayarajh/status/1732837520784957476"><span class="label label-info">tweet</span></a>
+						    	<a href="https://arxiv.org/abs/2402.01306"><span class="label label-default">paper</span></a>
+						    	<a href="https://x.com/ethayarajh/status/1732837520784957476"><span class="label label-info">tweet</span></a>
 							<a href="https://github.com/ContextualAI/HALOs"><span class="label label-success">code</span></a>
 							<a href="https://www.forbes.com/sites/robtoews/2024/02/04/what-is-the-best-way-to-control-todays-ai/"><span class="label label-danger">press</span></a>
 						</li>
 
 						<li>	
-							<i>Online Alignment as Perceptual Loss.</i><br/>
-							   Sijia Liu, Niklas Muennighoff, <u>Kawin Ethayarajh</u>.<br/>
-						       ICLR 2026.<br/>
-						    <a href="https://arxiv.org/abs/2509.24207"><span class="label label-default">paper</span></a>
-						    <a href="https://x.com/ethayarajh/status/1973901333557346803"><span class="label label-info">tweet</span></a>
+							<i>Humanline: Online Alignment as Perceptual Loss.</i><br/>
+							Sijia Liu, Niklas Muennighoff, <u>Kawin Ethayarajh</u>.<br/>
+						       	ICLR 2026.<br/>
+						    	<a href="https://arxiv.org/abs/2509.24207"><span class="label label-default">paper</span></a>
+						    	<a href="https://x.com/ethayarajh/status/1973901333557346803"><span class="label label-info">tweet</span></a>
 							<a href="https://github.com/ContextualAI/HALOs/tree/research"><span class="label label-success">code</span></a>
 						</li>
 					</ul>
 				</li>
 
-        <li>
-          Contextual representations from LLMs are <b>anisotropic</b>: they occupy a narrow cone in vector space, making cosine similarity unreliable as a measure of semantic relatedness. 
-          This paper identified and named the phenomenon, which has since become a foundational concept in NLP—cited as core motivation for contrastive learning approaches like SimCSE, embedding post-processing methods like whitening, and a broad literature on improving text representations.
-          <ul style='margin-bottom: 25px; list-style: none' id="pubs">
-            <li>
-            	<i>How Contextual are Contextualized Word Representations? Comparing the Geometry of BERT, ELMo, and GPT-2 Embeddings.</i><br/>
-            	<u>Kawin Ethayarajh</u>.<br/>
-	    	      EMNLP 2019 (<b>oral</b>).<br/>
-              <a href="https://www.aclweb.org/anthology/D19-1006"><span class="label label-default">paper</span></a>
-              <a href="https://twitter.com/ethayarajh/status/1225843038099931137"><span class="label label-info">tweet</span></a>
-              <a href="https://github.com/kawine/contextual"><span class="label label-success">code</span></a>
-            </li>
-          </ul>
-        </li>
+        			<li>
+					Contextual representations from LLMs are <b>anisotropic</b>: they occupy a narrow cone in vector space, making cosine similarity unreliable as a measure of semantic relatedness. This paper identified and named the phenomenon, which has since become a foundational concept in NLP—cited as core motivation for contrastive learning approaches like SimCSE, embedding post-processing methods like whitening, and a broad literature on improving text representations.
+					<ul style='margin-bottom: 25px; list-style: none' id="pubs">
+						<li>
+            						<i>How Contextual are Contextualized Word Representations? Comparing the Geometry of BERT, ELMo, and GPT-2 Embeddings.</i><br/>
+            						<u>Kawin Ethayarajh</u>.<br/>
+	    	      					EMNLP 2019 (<b>oral</b>).<br/>
+              						<a href="https://www.aclweb.org/anthology/D19-1006"><span class="label label-default">paper</span></a>
+              						<a href="https://twitter.com/ethayarajh/status/1225843038099931137"><span class="label label-info">tweet</span></a>
+              						<a href="https://github.com/kawine/contextual"><span class="label label-success">code</span></a>
+            					</li>
+          				</ul>
+        			</li>
 			</ul>
 		</p>
           </div>

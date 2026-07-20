@@ -41,7 +41,48 @@ layout: none
       .year { margin-top: 30px; margin-bottom: 10px; }
       .bottom-buffer { margin-bottom: 40px; }
 
-      #pubs li { margin: 15px 0px; }
+      .contributions {
+        list-style: none;
+        padding-left: 0;
+        margin-left: 0;
+        margin-top: 12px;
+      }
+
+      .contribution {
+        background: #fafafa;
+        border: 1px solid #e2e2e2;
+        border-left: 4px solid #555;
+        border-radius: 4px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+        margin-bottom: 18px;
+        padding: 16px 18px;
+      }
+
+      .contribution-summary {
+        border-top: 1px solid #e8e8e8;
+        color: #333;
+        line-height: 1.55;
+        margin-top: 13px;
+        margin-bottom: 0;
+        padding-top: 12px;
+      }
+
+      .pubs {
+        list-style: none;
+        padding-left: 0;
+        margin-left: 0;
+        margin-bottom: 0;
+      }
+
+      .pubs li {
+        margin: 0;
+        line-height: 1.45;
+      }
+
+      .pubs .label {
+        display: inline-block;
+        margin-top: 6px;
+      }
 
       @media (min-width: 992px) {
         .sidebar {
@@ -77,12 +118,9 @@ layout: none
             </div>
             <i class="fa fa-fw fa-map-marker"></i> Chicago, IL<br>
             <i class="fa fa-fw fa-envelope"></i> kawin.ethayarajh@chicagobooth.edu</a><br>
-            <a href="https://twitter.com/ethayarajh"><i class="fa fa-fw fa-twitter-square"></i> Twitter</a><br>
-            <a href="https://scholar.google.ca/citations?user=7SUV6rQAAAAJ&hl=en"><i class="fa fa-fw fa-google"></i> Google Scholar</a><br>
-            <a href="https://github.com/kawine"><i class="fa fa-fw fa-github"></i> Github</a><br>
-	          <a href="assets/CV.pdf"><i class="fa fa-fw fa-file"></i> CV</a><br>
-            <a href="/blog/"><i class="fa fa-fw fa-pencil"></i> Blog</a><br>
-          
+            <a href="https://twitter.com/ethayarajh"><i class="fa fa-fw fa-twitter-square"></i> X / Twitter</a><br>
+            <a href="https://scholar.google.ca/citations?user=7SUV6rQAAAAJ&hl=en"><i class="fa fa-fw fa-google"></i> Publications</a><br>
+	    <a href="assets/CV.pdf"><i class="fa fa-fw fa-file"></i> CV (outdated)</a><br>
         </div>
       </div>
 
@@ -90,82 +128,96 @@ layout: none
   
           <div class="col-12">
 		<p>
-			I am an <b>Assistant Professor of Applied AI</b> and <b>Kathryn and Grant Swick Faculty Scholar</b> at <b>UChicago Booth</b>, where I work on behavior-bound machine learning.
+			I'm an <b>Assistant Professor of Applied AI</b> and <b>Kathryn and Grant Swick Faculty Scholar</b> at <b>UChicago Booth</b>, where I work on behavior-bound machine learning.
 		</p>
 		<p>
 			Machine learning is not a sterile industrial process; much in the way that it is hardware-bound and software-bound, it is also bound by the behavior of real-world actors such as workers, firms, and states.
-			I create machines that are compatible with actual actors, not just idealized ones. 
+			I create machines that are compatible with actual actors, not just idealized ones, with research across post-training, evaluation, and AI governance.
 		</p>
 		<p>
 			My work has received an <b>ICML 2022 Outstanding Paper</b> award, a <b>Facebook Fellowship</b>, and an <b>NSERC PGS-D</b>.
 			Prior to UChicago, I graduated with a PhD in Computer Science from Stanford University, where I was advised by Dan Jurafsky.
-			I have also spent time at Princeton Language & Intelligence (post-doc) and the University of Toronto (MSc, BSc).
-		</p>
-		<p>
 			Notable work:
-			<ul style="list-style-type: none;" id="contributions">
-				<li>
-					We propose framing dataset difficulty as the lack of <i>V-usable information</i>. 
-					This led to the development of <b>Stanford Human Preferences (SHP)</b>, the first large-scale dataset of human preferences over natural text, based on data from Reddit. 
-					SHP was the only academic dataset used to post-train Llama-2, one of the most downloaded LLMs ever; the other datasets were from the likes of OpenAI and Meta itself.
-					Within a year of SHP's release, Reddit started licensing its data for AI training in deals valued at 200M+ USD.
-					<ul style='margin-bottom: 25px; list-style: none' id="pubs">
-					  <li>  
+		</p>
+		<ul class="contributions" id="contributions">
+			<li class="contribution">
+				<ul class="pubs">
+					<li>
+						<i>How Contextual are Contextualized Word Representations? Comparing the Geometry of BERT, ELMo, and GPT-2 Embeddings.</i><br/>
+						<u>Kawin Ethayarajh</u>.<br/>
+						EMNLP 2019.<br/>
+						<a href="https://www.aclweb.org/anthology/D19-1006"><span class="label label-default">paper</span></a>
+						<a href="https://twitter.com/ethayarajh/status/1225843038099931137"><span class="label label-info">tweet</span></a>
+						<a href="https://github.com/kawine/contextual"><span class="label label-success">code</span></a>
+					</li>
+				</ul>
+				<div class="contribution-summary">
+					Contextual representations in LLMs are <b>anisotropic</b>: they occupy a narrow cone in vector space instead of being uniformly distributed.
+					This paper identified and named the phenomenon, which has since become a foundational concept in AI—cited as core motivation for contrastive learning approaches like SimCSE, embedding post-processing methods like whitening, and a broad literature on representations.
+				</div>
+			</li>
+
+			<li class="contribution">
+				<ul class="pubs">
+					<li>
 						<i>Understanding Dataset Difficulty with V-Usable Information.</i><br/>
 						<u>Kawin Ethayarajh</u>, Yejin Choi, and Swabha Swayamdipta.<br/>
-						ICML 2022 (<b>outstanding paper</b> - top 10 of 1233 accepted).<br/>
+						ICML 2022 (<b>outstanding paper</b> - top 10 of 5,630 submissions).<br/>
 						<a href="https://arxiv.org/abs/2110.08420"><span class="label label-default">paper</span></a>
 						<a href="https://twitter.com/ethayarajh/status/1449203922057400329"><span class="label label-info">tweet 1</span></a>
 						<a href="https://twitter.com/ethayarajh/status/1628442002454085632?lang=en"><span class="label label-info">tweet 2</span></a>
 						<a href="https://github.com/kawine/dataset_difficulty"><span class="label label-success">code</span></a>
 						<a href="https://huggingface.co/datasets/stanfordnlp/SHP"><span class="label label-danger">dataset 1</span></a>
 						<a href="https://huggingface.co/datasets/stanfordnlp/SHP-2"><span class="label label-danger">dataset 2</span></a>
-					  </li>
-					</ul>
-				</li>
+					</li>
+				</ul>
+				<div class="contribution-summary">
+					We propose framing dataset difficulty as the lack of <i>V-usable information</i>. 
+					This led to the development of <b>Stanford Human Preferences (SHP)</b>, the first large-scale dataset of human preferences over natural text, based on data from Reddit. 
+					SHP was the only dataset from academia used to post-train Llama-2, one of the first open-weight models to be preference-tuned and one of the most downloaded LLMs ever.
+					Within a year of SHP's release, Reddit started licensing its data for AI training in deals valued at 200M+ USD.
+				</div>
+			</li>
 
-				<li>
+			<li class="contribution">
+				<ul class="pubs">
+					<li>
+						<i>Model Alignment as Prospect Theoretic Optimization.</i><br/>
+						<u>Kawin Ethayarajh</u>, Winnie Xu, Niklas Muennighoff, Dan Jurafsky, and Douwe Kiela.<br/>
+						ICML 2024 (<b>spotlight</b> - top 335 of 9,473 submissions).<br/>
+						<a href="https://arxiv.org/abs/2402.01306"><span class="label label-default">paper</span></a>
+						<a href="https://x.com/ethayarajh/status/1732837520784957476"><span class="label label-info">tweet</span></a>
+						<a href="https://github.com/ContextualAI/HALOs"><span class="label label-success">code</span></a>
+						<a href="https://www.forbes.com/sites/robtoews/2024/02/04/what-is-the-best-way-to-control-todays-ai/"><span class="label label-danger">press</span></a>
+					</li>
+				</ul>
+				<div class="contribution-summary">
 					We prove that the top post-training objectives (PPO, DPO) capture perceptual biases in how humans see random variables.
 					Surprisingly, these biases—like loss aversion—make post-training more efficient and performant than it otherwise would be.
-					By more intentionally integrating these biases, we create new post-training techniques: 
-					<b>KTO</b> is the industry standard for aligning LLMs on offline binary feedback; <b>humanline variants</b> erase the gap between offline and online alignment.
-					<ul style='margin-bottom: 25px; list-style: none' id="pubs">
-						<li>	
-							<i>KTO: Model Alignment as Prospect Theoretic Optimization.</i><br/>
-							<u>Kawin Ethayarajh</u>, Winnie Xu, Niklas Muennighoff, Dan Jurafsky, and Douwe Kiela.<br/>
-						       ICML 2024 (<b>spotlight</b> - top 3.5% of accepted).<br/>
-						    	<a href="https://arxiv.org/abs/2402.01306"><span class="label label-default">paper</span></a>
-						    	<a href="https://x.com/ethayarajh/status/1732837520784957476"><span class="label label-info">tweet</span></a>
-							<a href="https://github.com/ContextualAI/HALOs"><span class="label label-success">code</span></a>
-							<a href="https://www.forbes.com/sites/robtoews/2024/02/04/what-is-the-best-way-to-control-todays-ai/"><span class="label label-danger">press</span></a>
-						</li>
+					By more intentionally integrating these biases, we create <b>Kahneman-Tversky Optimization (KTO)</b>, a widely-used post-training algorithm..
+				</div>
+			</li>
 
-						<li>	
-							<i>Humanline: Online Alignment as Perceptual Loss.</i><br/>
-							Sijia Liu, Niklas Muennighoff, <u>Kawin Ethayarajh</u>.<br/>
-						       	ICLR 2026.<br/>
-						    	<a href="https://arxiv.org/abs/2509.24207"><span class="label label-default">paper</span></a>
-						    	<a href="https://x.com/ethayarajh/status/1973901333557346803"><span class="label label-info">tweet</span></a>
-							<a href="https://github.com/ContextualAI/HALOs/tree/research"><span class="label label-success">code</span></a>
-						</li>
-					</ul>
-				</li>
+			<li class="contribution">
+				<ul class="pubs">
+					<li>
+						<i>Mecha-nudges for Machines.</i><br/>
+						Giulio Frey and <u>Kawin Ethayarajh</u>.<br/>
+						Technical AI Governance Workshop (TAIGR) @ ICML 2026 (<b>outstanding paper</b> - top 6 of 174 submissions).<br/>
+						Game Theory and Mechanism Design Workshop @ EC 2026 (<b>spotlight</b>)<br/>
+						<a href="https://arxiv.org/abs/2603.23433"><span class="label label-default">paper</span></a>
+						<a href="https://x.com/ethayarajh/status/2037252106667589915"><span class="label label-info">tweet</span></a>
+						<a href="https://github.com/giuliofrey/mecha-nudges-repo"><span class="label label-success">code</span></a>
+					</li>
+				</ul>
+				<div class="contribution-summary">
+					As AI agents make decisions in the same environments as humans, the environments themselves will change to influence them.
+					We formalize these as <b>mecha-nudges</b> and provide the first large-scale evidence that systematic mecha-nudging is already happening in the wild, by studying the Etsy marketplace. 
+				</div>
+			</li>
 
-        			<li>
-					Contextual representations from LLMs are <b>anisotropic</b>: they occupy a narrow cone in vector space, making cosine similarity unreliable as a measure of semantic relatedness. This paper identified and named the phenomenon, which has since become a foundational concept in NLP—cited as core motivation for contrastive learning approaches like SimCSE, embedding post-processing methods like whitening, and a broad literature on improving text representations.
-					<ul style='margin-bottom: 25px; list-style: none' id="pubs">
-						<li>
-            						<i>How Contextual are Contextualized Word Representations? Comparing the Geometry of BERT, ELMo, and GPT-2 Embeddings.</i><br/>
-            						<u>Kawin Ethayarajh</u>.<br/>
-	    	      					EMNLP 2019 (<b>oral</b>).<br/>
-              						<a href="https://www.aclweb.org/anthology/D19-1006"><span class="label label-default">paper</span></a>
-              						<a href="https://twitter.com/ethayarajh/status/1225843038099931137"><span class="label label-info">tweet</span></a>
-              						<a href="https://github.com/kawine/contextual"><span class="label label-success">code</span></a>
-            					</li>
-          				</ul>
-        			</li>
-			</ul>
-		</p>
+
+		</ul>
           </div>
       </div>
     </div> <!-- /container -->

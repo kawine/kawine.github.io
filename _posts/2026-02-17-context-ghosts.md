@@ -90,8 +90,7 @@ This does two things:
 1. It preserves headroom in the parent context window. The parent can keep more of the true conversation history around, so you hit the compaction threshold later (or not at all).
 2. It keeps the parent policy closer to human expectations. Because the parent isn’t constantly rewriting itself around an ever-growing scratchpad, it’s less likely to drift into the weird "half-remembered, half-invented" state that shows up right after compaction.
 
-But if the parent crosses the context limit, compaction still happens and the same perceptual mismatch problem returns.
-Moreover, sub-agents return _partial views by design_, meaning that we're still living inside a hierarchy of compactions.
+But if the parent crosses the context limit, compaction still happens and the same perceptual mismatch problem returns. Moreover, recursive calls return _partial views by design_—either directly to the parent or indirectly, by modifying the environment—meaning that we're still living inside a hierarchy of compactions.
 
 At the end of the day, neither sub-agents nor RLMs make compaction perceptually aligned (nor is it their goal to do so!). 
 But in reducing the demand for compaction, they still markedly improve the user experience.
